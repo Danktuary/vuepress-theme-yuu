@@ -1,6 +1,6 @@
 <template>
 	<div class="user-settings">
-		<a href="#" @click.prevent="showMenu = !showMenu">
+		<a v-click-outside="hideMenu" href="#" @click.prevent="showMenu = !showMenu">
 			<!-- TODO: replace with a font icon -->
 			Settings
 		</a>
@@ -17,13 +17,25 @@
 </template>
 
 <script>
+import vClickOutside from 'v-click-outside';
+
 export default {
 	name: 'UserSettings',
+
+	directives: {
+		clickOutside: vClickOutside.directive,
+	},
 
 	data() {
 		return {
 			showMenu: false,
 		};
+	},
+
+	methods: {
+		hideMenu() {
+			this.showMenu = false;
+		},
 	},
 };
 </script>
