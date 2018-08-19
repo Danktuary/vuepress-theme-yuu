@@ -1,5 +1,5 @@
 <div align="center">
-	<img src="https://i.imgur.com/UM8v8W6.jpg" title="Yuu" alt="Yuu" />
+	<img src="https://i.imgur.com/uphwMrZ.jpg" title="Yuu" alt="Yuu" />
 </div>
 
 # Yuu
