@@ -1,15 +1,31 @@
 <template>
-	<div class="user-settings">
-		<a v-click-outside="hideMenu" href="#" @click.prevent="showMenu = !showMenu">
+	<div v-click-outside="hideMenu" class="user-settings">
+		<a href="#" @click.prevent="showMenu = !showMenu">
 			<!-- TODO: replace with a font icon -->
 			Settings
 		</a>
 		<transition name="menu-transition" mode="out-in">
 			<div v-if="showMenu" class="user-settings-menu">
 				<ul>
-					<li><a href="#">Some user config</a></li>
-					<li><a href="#">Some user config</a></li>
-					<li><a href="#">Some user config</a></li>
+					<li>
+						<ul class="theme-options">
+							<li>
+								<a href="#" class="default-theme" @click.prevent="changeTheme('')"></a>
+							</li>
+							<li>
+								<a href="#" class="dark-theme" @click.prevent="changeTheme('dark')"></a>
+							</li>
+							<li>
+								<a href="#" class="blue-theme" @click.prevent="changeTheme('blue')"></a>
+							</li>
+							<li>
+								<a href="#" class="red-theme" @click.prevent="changeTheme('red')"></a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="#">Branch selector</a>
+					</li>
 				</ul>
 			</div>
 		</transition>
@@ -35,6 +51,16 @@ export default {
 	methods: {
 		hideMenu() {
 			this.showMenu = false;
+		},
+
+		changeTheme(theme) {
+			const classes = this.$root.$el.classList;
+			const themes = ['dark', 'blue', 'red'];
+
+			if (!theme) return classes.remove(...themes);
+
+			classes.remove(...themes.filter(t => t !== theme));
+			classes.add(theme);
 		},
 	},
 };
@@ -84,6 +110,38 @@ export default {
 			list-style-type: none;
 			margin: 0;
 			padding: 0;
+		}
+
+		.theme-options {
+			display: flex;
+
+			li {
+				width: 25%;
+				text-align: center;
+
+				a {
+					width: 15px;
+					height: 15px;
+					border-radius: 2px;
+
+					&.default-theme {
+						background-color: $accentColor;
+					}
+
+					&.dark-theme {
+						background-color: $darkAccentColor;
+					}
+
+					&.blue-theme {
+						background-color: $blueAccentColor;
+					}
+
+					&.red-theme {
+						background-color: $redAccentColor;
+					}
+				}
+			}
+
 		}
 	}
 }
