@@ -13,7 +13,9 @@
 				ref="siteName"
 				class="site-name"
 				:class="{ 'can-hide': $site.themeConfig.logo }"
-			>{{ $siteTitle }}</span>
+			>
+				{{ $siteTitle }}
+			</span>
 		</router-link>
 		<div class="links" :style="{ 'max-width': linksWrapMaxWidth + 'px' }">
 			<AlgoliaSearchBox v-if="isAlgoliaSearch" :options="algolia" />
