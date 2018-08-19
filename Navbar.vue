@@ -18,6 +18,7 @@
 			</span>
 		</router-link>
 		<div class="links" :style="{ 'max-width': linksWrapMaxWidth + 'px' }">
+			<UserSettings />
 			<AlgoliaSearchBox v-if="isAlgoliaSearch" :options="algolia" />
 			<SearchBox v-else-if="$site.themeConfig.search !== false" />
 			<NavLinks class="can-hide" />
@@ -30,6 +31,7 @@ import SidebarButton from './SidebarButton.vue';
 import AlgoliaSearchBox from '@AlgoliaSearchBox';
 import SearchBox from './SearchBox.vue';
 import NavLinks from './NavLinks.vue';
+import UserSettings from './UserSettings.vue';
 
 function css(el, property) {
 	// NOTE: Known bug, will return 'auto' if style value is 'auto'
@@ -39,7 +41,7 @@ function css(el, property) {
 }
 
 export default {
-	components: { SidebarButton, NavLinks, SearchBox, AlgoliaSearchBox },
+	components: { SidebarButton, NavLinks, SearchBox, AlgoliaSearchBox, UserSettings },
 
 	data() {
 		return {
