@@ -5,53 +5,20 @@
 		@touchstart="onTouchStart"
 		@touchend="onTouchEnd"
 	>
-		<Navbar
-			v-if="shouldShowNavbar"
-			@toggle-sidebar="toggleSidebar"
-		/>
-
-		<div
-			class="sidebar-mask"
-			@click="toggleSidebar(false)"
-		/>
-
-		<Sidebar
-			:items="sidebarItems"
-			@toggle-sidebar="toggleSidebar"
-		>
-			<slot
-				slot="top"
-				name="sidebar-top"
-			/>
-			<slot
-				slot="bottom"
-				name="sidebar-bottom"
-			/>
+		<Navbar v-if="shouldShowNavbar" @toggle-sidebar="toggleSidebar" />
+		<div class="sidebar-mask" @click="toggleSidebar(false)"></div>
+		<Sidebar :items="sidebarItems" @toggle-sidebar="toggleSidebar">
+			<slot slot="top" name="sidebar-top"></slot>
+			<slot slot="bottom" name="sidebar-bottom"></slot>
 		</Sidebar>
-
-		<div
-			v-if="$page.frontmatter.layout"
-			class="custom-layout"
-		>
+		<div v-if="$page.frontmatter.layout" class="custom-layout">
 			<component :is="$page.frontmatter.layout" />
 		</div>
-
 		<Home v-else-if="$page.frontmatter.home" />
-
-		<Page
-			v-else
-			:sidebar-items="sidebarItems"
-		>
-			<slot
-				slot="top"
-				name="page-top"
-			/>
-			<slot
-				slot="bottom"
-				name="page-bottom"
-			/>
+		<Page v-else :sidebar-items="sidebarItems">
+			<slot slot="top" name="page-top"></slot>
+			<slot slot="bottom" name="page-bottom"></slot>
 		</Page>
-
 		<SWUpdatePopup :update-event="swUpdateEvent" />
 	</div>
 </template>
@@ -72,7 +39,7 @@ export default {
 	data() {
 		return {
 			isSidebarOpen: false,
-			swUpdateEvent: null
+			swUpdateEvent: null,
 		};
 	},
 
@@ -80,28 +47,18 @@ export default {
 		shouldShowNavbar() {
 			const { themeConfig } = this.$site;
 			const { frontmatter } = this.$page;
-			if (
-				frontmatter.navbar === false ||
-        themeConfig.navbar === false) {
+
+			if (frontmatter.navbar === false || themeConfig.navbar === false) {
 				return false;
 			}
-			return (
-				this.$title ||
-        themeConfig.logo ||
-        themeConfig.repo ||
-        themeConfig.nav ||
-        this.$themeLocaleConfig.nav
-			);
+
+			return this.$title || themeConfig.logo || themeConfig.repo || themeConfig.nav || this.$themeLocaleConfig.nav;
 		},
 
 		shouldShowSidebar() {
 			const { frontmatter } = this.$page;
-			return (
-				!frontmatter.layout &&
-        !frontmatter.home &&
-        frontmatter.sidebar !== false &&
-        this.sidebarItems.length
-			);
+
+			return !frontmatter.layout && !frontmatter.home && frontmatter.sidebar !== false && this.sidebarItems.length;
 		},
 
 		sidebarItems() {
@@ -115,15 +72,16 @@ export default {
 
 		pageClasses() {
 			const userPageClass = this.$page.frontmatter.pageClass;
+
 			return [
 				{
 					'no-navbar': !this.shouldShowNavbar,
 					'sidebar-open': this.isSidebarOpen,
-					'no-sidebar': !this.shouldShowSidebar
+					'no-sidebar': !this.shouldShowSidebar,
 				},
-				userPageClass
+				userPageClass,
 			];
-		}
+		},
 	},
 
 	mounted() {
@@ -136,6 +94,7 @@ export default {
 			if (to.path !== from.path && !Vue.component(to.name)) {
 				nprogress.start();
 			}
+
 			next();
 		});
 
@@ -156,17 +115,19 @@ export default {
 		onTouchStart(e) {
 			this.touchStart = {
 				x: e.changedTouches[0].clientX,
-				y: e.changedTouches[0].clientY
+				y: e.changedTouches[0].clientY,
 			};
 		},
 
 		onTouchEnd(e) {
 			const dx = e.changedTouches[0].clientX - this.touchStart.x;
 			const dy = e.changedTouches[0].clientY - this.touchStart.y;
+
 			if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
 				if (dx > 0 && this.touchStart.x <= 80) {
 					this.toggleSidebar(true);
-				} else {
+				}
+				else {
 					this.toggleSidebar(false);
 				}
 			}
@@ -174,8 +135,8 @@ export default {
 
 		onSWUpdated(e) {
 			this.swUpdateEvent = e;
-		}
-	}
+		},
+	},
 };
 </script>
 

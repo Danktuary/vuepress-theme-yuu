@@ -5,7 +5,7 @@
 		@after-enter="unsetHeight"
 		@before-leave="setHeight"
 	>
-		<slot />
+		<slot></slot>
 	</transition>
 </template>
 
@@ -21,8 +21,8 @@ export default {
 
 		unsetHeight(items) {
 			items.style.height = '';
-		}
-	}
+		},
+	},
 };
 </script>
 

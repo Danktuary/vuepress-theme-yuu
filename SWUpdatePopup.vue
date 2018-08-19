@@ -1,10 +1,8 @@
 <template>
 	<transition name="sw-update-popup">
-		<div
-			v-if="enabled"
-			class="sw-update-popup"
-		>
-			{{ message }}<br>
+		<div v-if="enabled" class="sw-update-popup">
+			{{ message }}
+			<br />
 			<button @click="reload">{{ buttonText }}</button>
 		</div>
 	</transition>
@@ -14,9 +12,9 @@
 export default {
 	props: {
 		updateEvent: {
-			'type': Object,
-			'default': null
-		}
+			type: Object,
+			default: null,
+		},
 	},
 
 	computed: {
@@ -27,6 +25,7 @@ export default {
 					return typeof sw.updatePopup === 'object' ? sw.updatePopup : {};
 				}
 			}
+
 			return null;
 		},
 
@@ -42,7 +41,7 @@ export default {
 		buttonText() {
 			const c = this.popupConfig;
 			return (c && c.buttonText) || 'Refresh';
-		}
+		},
 	},
 
 	methods: {
@@ -51,10 +50,11 @@ export default {
 				this.updateEvent.skipWaiting().then(() => {
 					location.reload(true);
 				});
+
 				this.updateEvent = null;
 			}
-		}
-	}
+		},
+	},
 };
 </script>
 

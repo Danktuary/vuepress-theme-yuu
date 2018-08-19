@@ -12,7 +12,7 @@
 			@keyup.enter="go(focusIndex)"
 			@keyup.up="onUp"
 			@keyup.down="onDown"
-		>
+		/>
 		<ul
 			v-if="showSuggestions"
 			class="suggestions"
@@ -21,20 +21,15 @@
 		>
 			<li
 				v-for="(s, i) in suggestions"
+				:key="i"
 				class="suggestion"
 				:class="{ focused: i === focusIndex }"
 				@mousedown="go(i)"
 				@mouseenter="focus(i)"
 			>
-				<a
-					:href="s.path"
-					@click.prevent
-				>
+				<a :href="s.path" @click.prevent>
 					<span class="page-title">{{ s.title || s.path }}</span>
-					<span
-						v-if="s.header"
-						class="header"
-					>&gt; {{ s.header.title }}</span>
+					<span v-if="s.header" class="header">&gt; {{ s.header.title }}</span>
 				</a>
 			</li>
 		</ul>
@@ -47,55 +42,53 @@ export default {
 		return {
 			query: '',
 			focused: false,
-			focusIndex: 0
+			focusIndex: 0,
 		};
 	},
 
 	computed: {
 		showSuggestions() {
-			return (
-				this.focused &&
-        this.suggestions &&
-        this.suggestions.length
-			);
+			return this.focused && this.suggestions && this.suggestions.length;
 		},
 
 		suggestions() {
 			const query = this.query.trim().toLowerCase();
-			if (!query) {
-				return;
-			}
+			if (!query) return;
 
 			const { pages, themeConfig } = this.$site;
 			const max = themeConfig.searchMaxSuggestions || 5;
 			const localePath = this.$localePath;
-			const matches = item => (
-				item.title &&
-        item.title.toLowerCase().indexOf(query) > -1
-			);
+
+			const matches = item => item.title && item.title.toLowerCase().indexOf(query) > -1;
 			const res = [];
+
 			for (let i = 0; i < pages.length; i++) {
 				if (res.length >= max) break;
+
 				const p = pages[i];
+
 				// filter out results that do not match current locale
-				if (this.getPageLocalePath(p) !== localePath) {
-					continue;
-				}
+				if (this.getPageLocalePath(p) !== localePath) continue;
+
 				if (matches(p)) {
 					res.push(p);
-				} else if (p.headers) {
+				}
+				else if (p.headers) {
 					for (let j = 0; j < p.headers.length; j++) {
 						if (res.length >= max) break;
+
 						const h = p.headers[j];
+
 						if (matches(h)) {
 							res.push(Object.assign({}, p, {
 								path: `${p.path}#${h.slug}`,
-								header: h
+								header: h,
 							}));
 						}
 					}
 				}
 			}
+
 			return res;
 		},
 
@@ -104,7 +97,7 @@ export default {
 			const navCount = (this.$site.themeConfig.nav || []).length;
 			const repo = this.$site.repo ? 1 : 0;
 			return navCount + repo <= 2;
-		}
+		},
 	},
 
 	methods: {
@@ -114,6 +107,7 @@ export default {
 					return localePath;
 				}
 			}
+
 			return '/';
 		},
 
@@ -121,7 +115,8 @@ export default {
 			if (this.showSuggestions) {
 				if (this.focusIndex > 0) {
 					this.focusIndex--;
-				} else {
+				}
+				else {
 					this.focusIndex = this.suggestions.length - 1;
 				}
 			}
@@ -131,16 +126,16 @@ export default {
 			if (this.showSuggestions) {
 				if (this.focusIndex < this.suggestions.length - 1) {
 					this.focusIndex++;
-				} else {
+				}
+				else {
 					this.focusIndex = 0;
 				}
 			}
 		},
 
 		go(i) {
-			if (!this.showSuggestions) {
-				return;
-			}
+			if (!this.showSuggestions) return;
+
 			this.$router.push(this.suggestions[i].path);
 			this.query = '';
 			this.focusIndex = 0;
@@ -152,8 +147,8 @@ export default {
 
 		unfocus() {
 			this.focusIndex = -1;
-		}
-	}
+		},
+	},
 };
 </script>
 

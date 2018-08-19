@@ -1,35 +1,20 @@
 <template>
-	<div
-		class="dropdown-wrapper"
-		:class="{ open }"
-	>
-		<a
-			class="dropdown-title"
-			@click="toggle"
-		>
+	<div class="dropdown-wrapper" :class="{ open }">
+		<a class="dropdown-title" @click="toggle">
 			<span class="title">{{ item.text }}</span>
-			<span
-				class="arrow"
-				:class="open ? 'down' : 'right'"
-			/>
+			<span class="arrow" :class="open ? 'down' : 'right'"></span>
 		</a>
-
 		<DropdownTransition>
-			<ul
-				v-show="open"
-				class="nav-dropdown"
-			>
+			<ul v-show="open" class="nav-dropdown">
 				<li
 					v-for="(subItem, index) in item.items"
 					:key="subItem.link || index"
 					class="dropdown-item"
 				>
-					<h4 v-if="subItem.type === 'links'">{{ subItem.text }}</h4>
-
-					<ul
-						v-if="subItem.type === 'links'"
-						class="dropdown-subitem-wrapper"
-					>
+					<h4 v-if="subItem.type === 'links'">
+						{{ subItem.text }}
+					</h4>
+					<ul v-if="subItem.type === 'links'" class="dropdown-subitem-wrapper">
 						<li
 							v-for="childSubItem in subItem.items"
 							:key="childSubItem.link"
@@ -38,11 +23,7 @@
 							<NavLink :item="childSubItem" />
 						</li>
 					</ul>
-
-					<NavLink
-						v-else
-						:item="subItem"
-					/>
+					<NavLink v-else :item="subItem" />
 				</li>
 			</ul>
 		</DropdownTransition>
@@ -58,21 +39,21 @@ export default {
 
 	props: {
 		item: {
-			required: true
-		}
+			required: true,
+		},
 	},
 
 	data() {
 		return {
-			open: false
+			open: false,
 		};
 	},
 
 	methods: {
 		toggle() {
 			this.open = !this.open;
-		}
-	}
+		},
+	},
 };
 </script>
 

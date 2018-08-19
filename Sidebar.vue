@@ -1,15 +1,9 @@
 <template>
 	<div class="sidebar">
 		<NavLinks />
-		<slot name="top" />
-		<ul
-			v-if="items.length"
-			class="sidebar-links"
-		>
-			<li
-				v-for="(item, i) in items"
-				:key="i"
-			>
+		<slot name="top"></slot>
+		<ul v-if="items.length" class="sidebar-links">
+			<li v-for="(item, i) in items" :key="i">
 				<SidebarGroup
 					v-if="item.type === 'group'"
 					:item="item"
@@ -18,13 +12,10 @@
 					:collapsable="item.collapsable || item.collapsible"
 					@toggle="toggleGroup(i)"
 				/>
-				<SidebarLink
-					v-else
-					:item="item"
-				/>
+				<SidebarLink v-else :item="item" />
 			</li>
 		</ul>
-		<slot name="bottom" />
+		<slot name="bottom"></slot>
 	</div>
 </template>
 
@@ -34,6 +25,16 @@ import SidebarLink from './SidebarLink.vue';
 import NavLinks from './NavLinks.vue';
 import { isActive } from './util';
 
+function resolveOpenGroupIndex(route, items) {
+	for (let i = 0; i < items.length; i++) {
+		const item = items[i];
+		if (item.type === 'group' && item.children.some(c => isActive(route, c.path))) {
+			return i;
+		}
+	}
+	return -1;
+}
+
 export default {
 	components: { SidebarGroup, SidebarLink, NavLinks },
 
@@ -41,14 +42,14 @@ export default {
 
 	data() {
 		return {
-			openGroupIndex: 0
+			openGroupIndex: 0,
 		};
 	},
 
 	watch: {
 		'$route'() {
 			this.refreshIndex();
-		}
+		},
 	},
 
 	created() {
@@ -57,10 +58,8 @@ export default {
 
 	methods: {
 		refreshIndex() {
-			const index = resolveOpenGroupIndex(
-				this.$route,
-				this.items
-			);
+			const index = resolveOpenGroupIndex(this.$route, this.items);
+
 			if (index > -1) {
 				this.openGroupIndex = index;
 			}
@@ -72,19 +71,9 @@ export default {
 
 		isActive(page) {
 			return isActive(this.$route, page.path);
-		}
-	}
+		},
+	},
 };
-
-function resolveOpenGroupIndex(route, items) {
-	for (let i = 0; i < items.length; i++) {
-		const item = items[i];
-		if (item.type === 'group' && item.children.some(c => isActive(route, c.path))) {
-			return i;
-		}
-	}
-	return -1;
-}
 </script>
 
 <style lang="stylus">

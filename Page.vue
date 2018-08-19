@@ -1,71 +1,69 @@
 <template>
 	<div class="page">
-		<slot name="top" />
-
-		<Content :custom="false" />
-
+		<slot name="top"></slot>
+		<Content :custom="false"></Content>
 		<div class="page-edit">
-			<div
-				v-if="editLink"
-				class="edit-link"
-			>
-				<a
-					:href="editLink"
-					target="_blank"
-					rel="noopener noreferrer"
-				>{{ editLinkText }}</a>
+			<div v-if="editLink" class="edit-link">
+				<a :href="editLink" target="_blank" rel="noopener noreferrer">
+					{{ editLinkText }}
+				</a>
 				<OutboundLink />
 			</div>
-
-			<div
-				v-if="lastUpdated"
-				class="last-updated"
-			>
+			<div v-if="lastUpdated" class="last-updated">
 				<span class="prefix">{{ lastUpdatedText }}: </span>
 				<span class="time">{{ lastUpdated }}</span>
 			</div>
 		</div>
-
-		<div
-			v-if="prev || next"
-			class="page-nav"
-		>
+		<div v-if="prev || next" class="page-nav">
 			<p class="inner">
-				<span
-					v-if="prev"
-					class="prev"
-				>
+				<span v-if="prev" class="prev">
 					←
-					<router-link
-						v-if="prev"
-						class="prev"
-						:to="prev.path"
-					>
+					<router-link v-if="prev" class="prev" :to="prev.path">
 						{{ prev.title || prev.path }}
 					</router-link>
 				</span>
-
-				<span
-					v-if="next"
-					class="next"
-				>
-					<router-link
-						v-if="next"
-						:to="next.path"
-					>
+				<span v-if="next" class="next">
+					<router-link v-if="next" :to="next.path">
 						{{ next.title || next.path }}
 					</router-link>
 					→
 				</span>
 			</p>
 		</div>
-
-		<slot name="bottom" />
+		<slot name="bottom"></slot>
 	</div>
 </template>
 
 <script>
 import { resolvePage, normalize, outboundRE, endingSlashRE } from './util';
+
+function find(page, items, offset) {
+	const res = [];
+
+	items.forEach(item => {
+		if (item.type === 'group') {
+			res.push(...item.children || []);
+		}
+		else {
+			res.push(item);
+		}
+	});
+
+	for (let i = 0; i < res.length; i++) {
+		const cur = res[i];
+		if (cur.type === 'page' && cur.path === page.path) {
+			return res[i + offset];
+		}
+	}
+}
+
+function resolvePrev(page, items) {
+	return find(page, items, -1);
+}
+
+function resolveNext(page, items) {
+	return find(page, items, 1);
+}
 
 export default {
 	props: ['sidebarItems'],
@@ -88,113 +86,77 @@ export default {
 		},
 
 		prev() {
-			const prev = this.$page.frontmatter.prev;
-			if (prev === false) {
+			const { prev } = this.$page.frontmatter;
 
-			} else if (prev) {
+			if (prev === false) {
+				// ...
+			}
+			else if (prev) {
 				return resolvePage(this.$site.pages, prev, this.$route.path);
-			} else {
+			}
+			else {
 				return resolvePrev(this.$page, this.sidebarItems);
 			}
 		},
 
 		next() {
-			const next = this.$page.frontmatter.next;
-			if (next === false) {
+			const { next } = this.$page.frontmatter;
 
-			} else if (next) {
+			if (next === false) {
+				// ...
+			}
+			else if (next) {
 				return resolvePage(this.$site.pages, next, this.$route.path);
-			} else {
+			}
+			else {
 				return resolveNext(this.$page, this.sidebarItems);
 			}
 		},
 
 		editLink() {
-			if (this.$page.frontmatter.editLink === false) {
-				return;
-			}
+			if (this.$page.frontmatter.editLink === false) return;
+
 			const {
 				repo,
 				editLinks,
 				docsDir = '',
 				docsBranch = 'master',
-				docsRepo = repo
+				docsRepo = repo,
 			} = this.$site.themeConfig;
 
 			let path = normalize(this.$page.path);
-			if (endingSlashRE.test(path)) {
-				path += 'README.md';
-			} else {
-				path += '.md';
-			}
+
+			path += (endingSlashRE.test(path)) ? 'README.md' : '.md';
+
 			if (docsRepo && editLinks) {
 				return this.createEditLink(repo, docsRepo, docsDir, docsBranch, path);
 			}
 		},
 
 		editLinkText() {
-			return (
-				this.$themeLocaleConfig.editLinkText ||
-        this.$site.themeConfig.editLinkText ||
-        `Edit this page`
-			);
-		}
+			return this.$themeLocaleConfig.editLinkText || this.$site.themeConfig.editLinkText || 'Edit this page';
+		},
 	},
 
 	methods: {
 		createEditLink(repo, docsRepo, docsDir, docsBranch, path) {
 			const bitbucket = /bitbucket.org/;
+
 			if (bitbucket.test(repo)) {
-				const base = outboundRE.test(docsRepo)
-					? docsRepo
-					: repo;
-				return (
-					`${base.replace(endingSlashRE, '')
-					}/${docsBranch}${
-						docsDir ? `/${docsDir.replace(endingSlashRE, '')}` : ''
-					}${path
-					}?mode=edit&spa=0&at=${docsBranch}&fileviewer=file-view-default`
-				);
+				const base = outboundRE.test(docsRepo) ? docsRepo : repo;
+
+				return `${base.replace(endingSlashRE, '')}/${docsBranch}
+					${docsDir ? `/${docsDir.replace(endingSlashRE, '')}` : ''}
+					${path}?mode=edit&spa=0&at=${docsBranch}&fileviewer=file-view-default`;
 			}
 
-			const base = outboundRE.test(docsRepo)
-				? docsRepo
-				: `https://github.com/${docsRepo}`;
+			const base = outboundRE.test(docsRepo) ? docsRepo : `https://github.com/${docsRepo}`;
 
-			return (
-				`${base.replace(endingSlashRE, '')
-				}/edit/${docsBranch}${
-					docsDir ? `/${docsDir.replace(endingSlashRE, '')}` : ''
-				}${path}`
-			);
-		}
-	}
+			return `${base.replace(endingSlashRE, '')}/edit/${docsBranch}
+				${docsDir ? `/${docsDir.replace(endingSlashRE, '')}` : ''}${path}`;
+		},
+	},
 };
-
-function resolvePrev(page, items) {
-	return find(page, items, -1);
-}
-
-function resolveNext(page, items) {
-	return find(page, items, 1);
-}
-
-function find(page, items, offset) {
-	const res = [];
-	items.forEach(item => {
-		if (item.type === 'group') {
-			res.push(...item.children || []);
-		} else {
-			res.push(item);
-		}
-	});
-	for (let i = 0; i < res.length; i++) {
-		const cur = res[i];
-		if (cur.type === 'page' && cur.path === page.path) {
-			return res[i + offset];
-		}
-	}
-}
 </script>
 
 <style lang="stylus">

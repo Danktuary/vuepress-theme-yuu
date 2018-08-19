@@ -1,48 +1,26 @@
 <template>
 	<div class="home">
 		<div class="hero">
-			<img
-				v-if="data.heroImage"
-				:src="$withBase(data.heroImage)"
-				alt="hero"
-			>
-
+			<img v-if="data.heroImage" :src="$withBase(data.heroImage)" alt="hero" />
 			<h1>{{ data.heroText || $title || 'Hello' }}</h1>
-
 			<p class="description">
 				{{ data.tagline || $description || 'Welcome to your VuePress site' }}
 			</p>
-
-			<p
-				v-if="data.actionText && data.actionLink"
-				class="action"
-			>
-				<NavLink
-					class="action-button"
-					:item="actionLink"
-				/>
+			<p v-if="data.actionText && data.actionLink" class="action">
+				<NavLink class="action-button" :item="actionLink" />
 			</p>
 		</div>
-
 		<div
 			v-if="data.features && data.features.length"
 			class="features"
 		>
-			<div
-				v-for="feature in data.features"
-				class="feature"
-			>
+			<div v-for="(feature, i) in data.features" :key="i" class="feature">
 				<h2>{{ feature.title }}</h2>
 				<p>{{ feature.details }}</p>
 			</div>
 		</div>
-
-		<Content custom />
-
-		<div
-			v-if="data.footer"
-			class="footer"
-		>
+		<Content custom></Content>
+		<div v-if="data.footer" class="footer">
 			{{ data.footer }}
 		</div>
 	</div>
@@ -62,10 +40,10 @@ export default {
 		actionLink() {
 			return {
 				link: this.data.actionLink,
-				text: this.data.actionText
+				text: this.data.actionText,
 			};
-		}
-	}
+		},
+	},
 };
 </script>
 
