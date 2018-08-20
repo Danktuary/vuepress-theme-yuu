@@ -10,7 +10,7 @@
 					<li>
 						<ul class="theme-options">
 							<li>
-								<a href="#" class="default-theme" @click.prevent="changeTheme('')"></a>
+								<a href="#" class="default-theme" @click.prevent="changeTheme()"></a>
 							</li>
 							<li>
 								<a href="#" class="dark-theme" @click.prevent="changeTheme('dark')"></a>
@@ -39,7 +39,7 @@ export default {
 	name: 'UserSettings',
 
 	directives: {
-		clickOutside: vClickOutside.directive,
+		'click-outside': vClickOutside.directive,
 	},
 
 	data() {
@@ -54,13 +54,18 @@ export default {
 		},
 
 		changeTheme(theme) {
-			const classes = this.$root.$el.classList;
+			const classes = document.body.classList;
 			const themes = ['dark', 'blue', 'red'];
 
-			if (!theme) return classes.remove(...themes);
+			if (!theme) {
+				localStorage.removeItem('layout-theme');
+				return classes.remove(...themes);
+			}
 
 			classes.remove(...themes.filter(t => t !== theme));
 			classes.add(theme);
+
+			localStorage.setItem('layout-theme', theme);
 		},
 	},
 };

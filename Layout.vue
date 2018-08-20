@@ -85,6 +85,10 @@ export default {
 	},
 
 	mounted() {
+		if (localStorage.getItem('layout-theme')) {
+			document.body.classList.add(localStorage.getItem('layout-theme'));
+		}
+
 		window.addEventListener('scroll', this.onScroll);
 
 		// configure progress bar
