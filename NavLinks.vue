@@ -109,36 +109,111 @@ export default {
 </script>
 
 <style lang="stylus">
-@import './styles/config.styl'
+@import './styles/config.styl';
 
-.nav-links
-  display inline-block
-  a
-    line-height 1.4rem
-    color inherit
-    &:hover, &.router-link-active
-      color $accentColor
-  .nav-item
-    position relative
-    display inline-block
-    margin-left 1.5rem
-    line-height 2rem
-    &:first-child
-      margin-left 0
-  .repo-link
-    margin-left 1.5rem
+.nav-links {
+	display: inline-block;
 
-@media (max-width: $MQMobile)
-  .nav-links
-    .nav-item, .repo-link
-      margin-left 0
+	a {
+		line-height: 1.4rem;
+		color: inherit;
 
-@media (min-width: $MQMobile)
-  .nav-links a
-    &:hover, &.router-link-active
-      color $textColor
-  .nav-item > a:not(.external)
-    &:hover, &.router-link-active
-      margin-bottom -2px
-      border-bottom 2px solid lighten($accentColor, 8%)
+		&:hover,
+		&.router-link-active {
+			color: $accentColor;
+		}
+	}
+
+	.nav-item {
+		position: relative;
+		display: inline-block;
+		margin-left: 1.5rem;
+		line-height: 2rem;
+
+		&:first-child {
+			margin-left: 0;
+		}
+	}
+
+	.repo-link {
+		margin-left: 1.5rem;
+	}
+}
+
+.blue {
+	.nav-links a {
+		color: inherit;
+
+		&:hover,
+		&.router-link-active {
+			color: $blueAccentColor;
+		}
+	}
+}
+
+.red {
+	.nav-links a {
+		color: inherit;
+
+		&:hover,
+		&.router-link-active {
+			color: $redAccentColor;
+		}
+	}
+}
+
+@media (max-width: $MQMobile) {
+	.nav-links {
+		.nav-item,
+		.repo-link {
+			margin-left: 0;
+		}
+	}
+}
+
+@media (min-width: $MQMobile) {
+	.nav-links a {
+		&:hover,
+		&.router-link-active {
+			color: $textColor;
+		}
+	}
+
+	.dark {
+		.nav-links a {
+			color: $darkTextColor;
+
+			&:hover,
+			&.router-link-active {
+				color: $darkTextColor;
+			}
+		}
+	}
+
+	.nav-item > a:not(.external) {
+		&:hover,
+		&.router-link-active {
+			margin-bottom: -2px;
+			border-bottom: 2px solid lighten($accentColor, 8%);
+		}
+	}
+
+	.blue {
+		.nav-item > a:not(.external) {
+			&:hover,
+			&.router-link-active {
+				border-bottom-color: $blueAccentColor;
+			}
+		}
+	}
+
+	.red {
+		.nav-item > a:not(.external) {
+			&:hover,
+			&.router-link-active {
+				border-bottom-color: $redAccentColor;
+			}
+		}
+	}
+}
 </style>
