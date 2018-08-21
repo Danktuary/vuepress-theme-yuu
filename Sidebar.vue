@@ -112,6 +112,12 @@ export default {
 	}
 }
 
+.dark {
+	.nav-links {
+		border-bottom-color: $darkBorderColor;
+	}
+}
+
 @media (max-width: $MQMobile) {
 	.sidebar {
 		.nav-links {
