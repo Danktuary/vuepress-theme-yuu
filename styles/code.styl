@@ -74,16 +74,17 @@ div[class*="language-"] {
 		.highlight-lines .highlighted {
 			position: relative;
 
-			&::before
-			content: ' ';
-			position: absolute;
-			z-index: 3;
-			left: 0;
-			top: 0;
-			display: block;
-			width: $lineNumbersWrapperWidth;
-			height: 100%;
-			background-color: rgba(0, 0, 0, 66%);
+			&::before {
+				content: ' ';
+				position: absolute;
+				z-index: 3;
+				left: 0;
+				top: 0;
+				display: block;
+				width: $lineNumbersWrapperWidth;
+				height: 100%;
+				background-color: rgba(0, 0, 0, 66%);
+			}
 		}
 
 		pre {
