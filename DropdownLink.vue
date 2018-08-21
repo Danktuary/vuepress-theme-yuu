@@ -107,10 +107,7 @@ export default {
 			margin-bottom: 0;
 			padding: 0 1.5rem 0 1.25rem;
 
-			&:hover {
-				color: $accentColor;
-			}
-
+			&:hover,
 			&.router-link-active {
 				color: $accentColor;
 			}
@@ -136,6 +133,54 @@ export default {
 	}
 }
 
+.dark {
+	.dropdown-wrapper .nav-dropdown {
+		background-color: $darkPrimaryBg;
+		border-color: $darkBorderColor;
+
+		h4 {
+			border-top-color: $darkBorderColor;
+		}
+
+		a {
+			&:hover,
+			&.router-link-active {
+				color: $accentColor;
+			}
+		}
+	}
+}
+
+.blue {
+	.dropdown-wrapper .nav-dropdown {
+		a {
+			&:hover,
+			&.router-link-active {
+				color: $blueAccentColor;
+			}
+
+			&::after {
+				border-left-color: $blueAccentColor;
+			}
+		}
+	}
+}
+
+.red {
+	.dropdown-wrapper .nav-dropdown {
+		a {
+			&:hover,
+			&.router-link-active {
+				color: $redAccentColor;
+			}
+
+			&::after {
+				border-left-color: $redAccentColor;
+			}
+		}
+	}
+}
+
 @media (max-width: $MQMobile) {
 	.dropdown-wrapper {
 		&.open .dropdown-title {
@@ -143,7 +188,7 @@ export default {
 		}
 
 		.nav-dropdown {
-			transition height: .1s ease-out;
+			transition: height 0.1s ease-out;
 			overflow: hidden;
 
 			.dropdown-item {
@@ -164,6 +209,7 @@ export default {
 				}
 			}
 		}
+	}
 }
 
 @media (min-width: $MQMobile) {
