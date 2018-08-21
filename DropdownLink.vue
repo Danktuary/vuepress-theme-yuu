@@ -107,21 +107,24 @@ export default {
 			margin-bottom: 0;
 			padding: 0 1.5rem 0 1.25rem;
 
-			&:hover,
-			&.router-link-active {
+			&:hover {
 				color: $accentColor;
 			}
 
-			&::after {
-				content: "";
-				width: 0;
-				height: 0;
-				border-left: 5px solid $accentColor;
-				border-top: 3px solid transparent;
-				border-bottom: 3px solid transparent;
-				position: absolute;
-				top: calc(50% - 2px);
-				left: 9px;
+			&.router-link-active {
+				color: $accentColor;
+
+				&::after {
+					content: "";
+					width: 0;
+					height: 0;
+					border-left: 5px solid $accentColor;
+					border-top: 3px solid transparent;
+					border-bottom: 3px solid transparent;
+					position: absolute;
+					top: calc(50% - 2px);
+					left: 9px;
+				}
 			}
 		}
 
