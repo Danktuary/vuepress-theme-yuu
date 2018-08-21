@@ -120,4 +120,46 @@ a.sidebar-link {
 		}
 	}
 }
+
+.blue {
+	&.dark {
+		a.sidebar-link {
+			color: $darkAltTextColor;
+		}
+	}
+
+	a.sidebar-link {
+		color: $textColor;
+
+		&:hover {
+			color: $blueAccentColor;
+		}
+
+		&.active {
+			color: $blueAccentColor;
+			border-left-color: $blueAccentColor;
+		}
+	}
+}
+
+.red {
+	&.dark {
+		a.sidebar-link {
+			color: $darkAltTextColor;
+		}
+	}
+
+	a.sidebar-link {
+		color: $textColor;
+
+		&:hover {
+			color: $redAccentColor;
+		}
+
+		&.active {
+			color: $redAccentColor;
+			border-left-color: $redAccentColor;
+		}
+	}
+}
 </style>
