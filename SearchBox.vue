@@ -153,7 +153,7 @@ export default {
 </script>
 
 <style lang="stylus">
-@import './styles/config.styl'
+@import './styles/config.styl';
 
 .search-box {
 	display: inline-block;
@@ -227,7 +227,7 @@ export default {
 }
 
 .dark {
-	.search-box  {
+	.search-box {
 		input,
 		.suggestions {
 			background-color: $darkSecondaryBg;
@@ -236,6 +236,10 @@ export default {
 
 		input {
 			color: $darkTextColor;
+
+			&:focus {
+				border-color: alpha($accentColor, 0.75);
+			}
 		}
 
 		.suggestion {
@@ -249,6 +253,34 @@ export default {
 
 			a {
 				color: $darkAltTextColor;
+			}
+		}
+	}
+}
+
+.blue {
+	.search-box {
+		input:focus {
+			border-color: alpha($blueAccentColor, 0.75);
+		}
+
+		.suggestion {
+			&.focused a {
+				color: $blueAccentColor;
+			}
+		}
+	}
+}
+
+.red {
+	.search-box {
+		input:focus {
+			border-color: alpha($redAccentColor, 0.75);
+		}
+
+		.suggestion {
+			&.focused a {
+				color: $redAccentColor;
 			}
 		}
 	}
