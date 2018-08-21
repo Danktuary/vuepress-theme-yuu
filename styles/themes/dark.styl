@@ -5,8 +5,8 @@
 	color: $darkTextColor;
 	background-color: $darkPrimaryBg;
 
-	p a code {
-		color: $darkPrimaryBg;
+	hr {
+		border-top-color: $darkBorderColor;
 	}
 
 	.sidebar {
@@ -52,12 +52,25 @@
 
 	.content {
 		code {
+			color: $purple;
+			background-color: $darkSecondaryBg;
+		}
+
+		a code {
+			color: $accentColor;
+		}
+	}
+
+	tr {
+		border-top-color: $darkBorderColor;
+
+		&:nth-child(2n) {
 			background-color: $darkSecondaryBg;
 		}
 	}
 
-	tr:nth-child(2n) {
-		background-color: $darkSecondaryBg;
+	th, td {
+		border-color: $darkBorderColor;
 	}
 
 	.page-nav .inner {
