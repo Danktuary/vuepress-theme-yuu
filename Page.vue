@@ -216,6 +216,12 @@ export default {
 	}
 }
 
+.dark {
+	.page-nav .inner {
+		border-top-color: $darkBorderColor;
+	}
+}
+
 @media (max-width: $MQMobile) {
 	.page-edit {
 		.edit-link {

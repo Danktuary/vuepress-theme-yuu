@@ -44,3 +44,37 @@
 		}
 	}
 }
+
+.dark {
+	.custom-block {
+		&.tip {
+			background-color: alpha(#42b983, 0.25);
+		}
+
+		&.warning {
+			color: $darkTextColor;
+			background-color: alpha(darken(#ffe564, 15%), 0.25);
+
+			.custom-block-title {
+				color: darken(#ffe564, 15%);
+			}
+
+			a {
+				color: $darkTextColor;
+			}
+		}
+
+		&.danger {
+			color: $darkTextColor;
+			background-color: alpha(darken(red, 10%), 0.25);
+
+			.custom-block-title {
+				color: darken(red, 10%);
+			}
+
+			a {
+				color: $darkTextColor;
+			}
+		}
+	}
+}

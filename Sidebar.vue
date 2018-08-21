@@ -113,8 +113,13 @@ export default {
 }
 
 .dark {
-	.nav-links {
-		border-bottom-color: $darkBorderColor;
+	.sidebar {
+		background-color: $darkPrimaryBg;
+		border-right-color: $darkBorderColor;
+
+		.nav-links {
+			border-bottom-color: $darkBorderColor;
+		}
 	}
 }
 

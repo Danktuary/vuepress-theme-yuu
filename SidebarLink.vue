@@ -112,7 +112,7 @@ a.sidebar-link {
 
 .dark {
 	a.sidebar-link {
-		color: $textColor;
+		color: $darkAltTextColor;
 
 		&:hover,
 		&.active {
