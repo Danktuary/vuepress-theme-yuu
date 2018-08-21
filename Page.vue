@@ -177,7 +177,6 @@ export default {
 		display: inline-block;
 
 		a {
-			color: lighten($textColor, 25%);
 			margin-right: 0.25rem;
 		}
 	}
@@ -219,6 +218,18 @@ export default {
 .dark {
 	.page-nav .inner {
 		border-top-color: $darkBorderColor;
+	}
+}
+
+.blue {
+	.page-edit .edit-link a {
+		color: $blueAccentColor;
+	}
+}
+
+.red {
+	.page-edit .edit-link a {
+		color: $redAccentColor;
 	}
 }
 
