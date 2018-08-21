@@ -88,4 +88,15 @@ export default {
 		}
 	}
 }
+
+.dark {
+	.user-settings-menu {
+		background-color: $darkPrimaryBg;
+		border-color: $darkBorderColor;
+
+		&::before {
+			border-bottom-color: $darkBorderColor;
+		}
+	}
+}
 </style>
