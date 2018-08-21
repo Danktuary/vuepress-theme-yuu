@@ -160,52 +160,73 @@ export default {
 </script>
 
 <style lang="stylus">
-@import './styles/config.styl'
-@require './styles/wrapper.styl'
+@import './styles/config.styl';
+@require './styles/wrapper.styl';
 
-.page
-  padding-bottom 2rem
+.page {
+	padding-bottom: 2rem;
+}
 
-.page-edit
-  @extend $wrapper
-  padding-top 1rem
-  padding-bottom 1rem
-  overflow auto
-  .edit-link
-    display inline-block
-    a
-      color lighten($textColor, 25%)
-      margin-right 0.25rem
-  .last-updated
-    float right
-    font-size 0.9em
-    .prefix
-      font-weight 500
-      color lighten($textColor, 25%)
-    .time
-      font-weight 400
-      color #aaa
+.page-edit {
+	@extend $wrapper;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	overflow: auto;
 
-.page-nav
-  @extend $wrapper
-  padding-top 1rem
-  padding-bottom 0
-  .inner
-    min-height 2rem
-    margin-top 0
-    border-top 1px solid $borderColor
-    padding-top 1rem
-    overflow auto // clear float
-  .next
-    float right
+	.edit-link {
+		display: inline-block;
 
-@media (max-width: $MQMobile)
-  .page-edit
-    .edit-link
-      margin-bottom .5rem
-    .last-updated
-      font-size .8em
-      float none
-      text-align left
+		a {
+			color: lighten($textColor, 25%);
+			margin-right: 0.25rem;
+		}
+	}
 
+	.last-updated {
+		float: right;
+		font-size: 0.9em;
+
+		.prefix {
+			font-weight: 500;
+			color: lighten($textColor, 25%);
+		}
+
+		.time {
+			font-weight: 400;
+			color: #aaa;
+		}
+	}
+}
+
+.page-nav {
+	@extend $wrapper;
+	padding-top: 1rem;
+	padding-bottom: 0;
+
+	.inner {
+		min-height: 2rem;
+		margin-top: 0;
+		border-top: 1px solid $borderColor;
+		padding-top: 1rem;
+		overflow: auto; // clear float
+	}
+
+	.next {
+		float: right;
+	}
+}
+
+@media (max-width: $MQMobile) {
+	.page-edit {
+		.edit-link {
+			margin-bottom: 0.5rem;
+		}
+
+		.last-updated {
+			font-size: 0.8em;
+			float: none;
+			text-align: left;
+		}
+	}
+}
 </style>
