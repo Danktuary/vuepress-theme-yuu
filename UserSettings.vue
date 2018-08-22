@@ -62,11 +62,11 @@ export default {
 		&::before {
 			content: '';
 			position: absolute;
-			top: -8px;
+			top: -7px;
 			left: 50%;
 			border-style: solid;
 			border-color: transparent transparent $borderColor;
-			border-width: 0 6px 8px;
+			border-width: 0 7px 7px;
 			transform: translateX(-50%);
 		}
 
