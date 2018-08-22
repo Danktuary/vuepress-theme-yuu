@@ -132,6 +132,47 @@ export default {
 	}
 }
 
+.dark {
+	.home {
+		.hero .description,
+		.feature h2,
+		.feature p {
+			color: $darkTextColor;
+		}
+
+		.features {
+			border-top-color: $darkBorderColor;
+		}
+
+		.footer {
+			color: $darkAltTextColor;
+			border-top-color: $darkBorderColor;
+		}
+	}
+}
+
+.blue {
+	.hero .action-button {
+		background-color: $blueAccentColor;
+		border-bottom-color: darken($blueAccentColor, 10%);
+
+		&:hover {
+			background-color: lighten($blueAccentColor, 10%);
+		}
+	}
+}
+
+.red {
+	.hero .action-button {
+		background-color: $redAccentColor;
+		border-bottom-color: darken($redAccentColor, 10%);
+
+		&:hover {
+			background-color: lighten($redAccentColor, 10%);
+		}
+	}
+}
+
 @media (max-width: $MQMobile) {
 	.home {
 		.features {
