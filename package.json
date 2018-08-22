@@ -1,7 +1,7 @@
 {
-  "name": "theme",
+  "name": "vuepress-theme-yuu",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "Layout.vue",
   "repository": "https://github.com/Danktuary/vuepress-theme-yuu.git",
   "author": "Sanctuary <sanc.pw@gmail.com>",
   "license": "MIT",
