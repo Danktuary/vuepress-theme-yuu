@@ -125,7 +125,7 @@ export default {
 				border-color: $borderColor;
 				background: #f1f3f5;
 
-				&:after {
+				&::after {
 					display: none;
 				}
 			}
@@ -133,6 +133,7 @@ export default {
 			.algolia-docsearch-suggestion--subcategory-column-text {
 				color: #555;
 			}
+		}
 
 		.algolia-docsearch-footer {
 			border-color: $borderColor;
@@ -163,7 +164,7 @@ export default {
 					vertical-align: top;
 				}
 
-				.ds-dropdown-menu
+				.ds-dropdown-menu {
 					min-width: 515px !important;
 				}
 			}
