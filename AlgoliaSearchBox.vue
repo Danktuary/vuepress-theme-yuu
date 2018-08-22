@@ -146,6 +146,117 @@ export default {
 	}
 }
 
+.dark {
+	.algolia-search-wrapper .algolia-autocomplete {
+		.ds-dropdown-menu {
+			background-color: $darkPrimaryBg;
+			border-color: $darkBorderColor;
+
+			&::before {
+				background-color: $darkPrimaryBg;
+				border-color: $darkBorderColor;
+			}
+
+			[class^="ds-dataset-"] {
+				background-color: $darkPrimaryBg;
+			}
+
+			.ds-suggestion {
+				border-color: $darkBorderColor;
+			}
+
+			.ds-cursor .algolia-docsearch-suggestion--content {
+				color: $darkTextColor;
+				background-color: $darkSecondaryBg !important;
+
+				&::before {
+					background-color: $darkBorderColor;
+				}
+			}
+
+			.algolia-docsearch-suggestion--content::before {
+				background-color: $darkBorderColor;
+			}
+		}
+
+		.algolia-docsearch-suggestion--category-header {
+			border-color: $darkBorderColor;
+		}
+
+		.algolia-docsearch-suggestion {
+			color: $darkTextColor;
+			background-color: $darkPrimaryBg;
+			border-color: $darkBorderColor;
+
+			.algolia-docsearch-suggestion--category-header {
+				color: $darkTextColor;
+			}
+
+			 .algolia-docsearch-suggestion--title {
+				 color: $darkAltTextColor;
+			 }
+
+			.algolia-docsearch-suggestion--subcategory-column {
+				color: $darkTextColor;
+				background-color: $darkPrimaryBg;
+				border-color: $darkBorderColor;
+
+				&::before {
+					background-color: $darkBorderColor;
+				}
+
+				.algolia-docsearch-suggestion--highlight {
+					color: $accentColor;
+				}
+			}
+
+			.algolia-docsearch-suggestion--subcategory-column-text {
+				color: $darkTextColor;
+			}
+		}
+	}
+}
+
+.blue {
+	.algolia-search-wrapper .algolia-autocomplete {
+		.algolia-docsearch-suggestion {
+			.algolia-docsearch-suggestion--category-header {
+				background-color: darken($blueAccentColor, 10%);
+			}
+
+			.algolia-docsearch-suggestion--subcategory-column {
+				.algolia-docsearch-suggestion--highlight {
+					color: $blueAccentColor;
+				}
+			}
+		}
+
+		.algolia-docsearch-suggestion--highlight {
+			color: $blueAccentColor;
+		}
+	}
+}
+
+.red {
+	.algolia-search-wrapper .algolia-autocomplete {
+		.algolia-docsearch-suggestion {
+			.algolia-docsearch-suggestion--category-header {
+				background-color: darken($redAccentColor, 10%);
+			}
+
+			.algolia-docsearch-suggestion--subcategory-column {
+				.algolia-docsearch-suggestion--highlight {
+					color: $redAccentColor;
+				}
+			}
+		}
+
+		.algolia-docsearch-suggestion--highlight {
+			color: $redAccentColor;
+		}
+	}
+}
+
 @media (min-width: $MQMobile) {
 	.algolia-search-wrapper {
 		.algolia-autocomplete {
