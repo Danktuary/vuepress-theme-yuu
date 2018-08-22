@@ -317,6 +317,10 @@ export default {
 
 		input {
 			left: 1rem;
+
+			&:focus {
+				margin-left: 1em;
+			}
 		}
 
 		.suggestions {

@@ -110,4 +110,18 @@ export default {
 		}
 	}
 }
+
+@media (max-width: $MQMobile) {
+	.user-settings {
+		margin-right: 0;
+
+		.user-settings-menu {
+			left: calc(50% - 25px);
+
+			&::before {
+				left: calc(50% + 25px);
+			}
+		}
+	}
+}
 </style>
