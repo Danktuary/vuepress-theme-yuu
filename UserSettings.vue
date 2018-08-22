@@ -1,12 +1,11 @@
 <template>
 	<div v-click-outside="hideMenu" class="user-settings">
-		<a href="#" @click.prevent="showMenu = !showMenu">
-			<!-- TODO: replace with a font icon -->
-			Settings
+		<a class="settings-button" href="#" @click.prevent="showMenu = !showMenu">
+			<CogIcon class="settings-icon" />
 		</a>
 		<transition name="menu-transition" mode="out-in">
 			<div v-show="showMenu" class="user-settings-menu">
-				<theme-options />
+				<ThemeOptions />
 			</div>
 		</transition>
 	</div>
@@ -15,6 +14,7 @@
 <script>
 import vClickOutside from 'v-click-outside';
 import ThemeOptions from './ThemeOptions.vue';
+import CogIcon from './CogIcon.vue';
 
 export default {
 	name: 'UserSettings',
@@ -23,9 +23,7 @@ export default {
 		'click-outside': vClickOutside.directive,
 	},
 
-	components: {
-		ThemeOptions,
-	},
+	components: { CogIcon, ThemeOptions },
 
 	data() {
 		return {
@@ -47,6 +45,18 @@ export default {
 .user-settings {
 	position: relative;
 	margin-right: 1em;
+
+	.settings-button {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
+
+		.settings-icon {
+			width: 18px;
+		}
+	}
+
 
 	.user-settings-menu {
 		background-color: #fff;

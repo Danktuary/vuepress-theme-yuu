@@ -8,16 +8,16 @@
 				<a href="#" :class="`${color}-theme`" @click.prevent="changeTheme(color)"></a>
 			</li>
 		</ul>
-		<div>
+		<div class="dark-theme-options">
 			<label for="dark-theme-toggle">
-				Enable Dark Theme
-				<input
-					id="dark-theme-toggle"
-					v-model="darkTheme"
-					type="checkbox"
-					@change="toggleDarkTheme"
-				/>
+				Enable Dark Theme ?
 			</label>
+			<input
+				id="dark-theme-toggle"
+				v-model="darkTheme"
+				type="checkbox"
+				@change="toggleDarkTheme"
+			/>
 		</div>
 	</div>
 </template>
@@ -102,6 +102,16 @@ export default {
 				background-color: $redAccentColor;
 			}
 		}
+	}
+}
+
+.dark-theme-options {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	label {
+		padding-right: 0.25em;
 	}
 }
 </style>
