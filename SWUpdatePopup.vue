@@ -88,4 +88,22 @@ export default {
 	opacity: 0;
 	transform: translate(0, 50%) scale(0.5);
 }
+
+.dark {
+	.sw-update-popup {
+		background-color: $darkPrimaryBg;
+	}
+}
+
+.blue {
+	.sw-update-popup {
+		border-color: $blueAccentColor;
+	}
+}
+
+.red {
+	.sw-update-popup {
+		border-color: $redAccentColor;
+	}
+}
 </style>
