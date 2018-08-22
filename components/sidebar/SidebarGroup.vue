@@ -16,7 +16,7 @@
 
 <script>
 import SidebarLink from './SidebarLink.vue';
-import DropdownTransition from './DropdownTransition.vue';
+import DropdownTransition from '../nav/DropdownTransition.vue';
 
 export default {
 	name: 'SidebarGroup',

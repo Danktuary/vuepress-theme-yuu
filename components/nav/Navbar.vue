@@ -27,11 +27,11 @@
 </template>
 
 <script>
-import SidebarButton from './SidebarButton.vue';
-import AlgoliaSearchBox from './AlgoliaSearchBox.vue';
-import SearchBox from './SearchBox.vue';
+import SidebarButton from '../sidebar/SidebarButton.vue';
+import AlgoliaSearchBox from '../search/AlgoliaSearchBox.vue';
+import SearchBox from '../search/SearchBox.vue';
 import NavLinks from './NavLinks.vue';
-import UserSettings from './UserSettings.vue';
+import UserSettings from '../settings/UserSettings.vue';
 
 function css(el, property) {
 	// NOTE: Known bug, will return 'auto' if style value is 'auto'
@@ -80,7 +80,7 @@ export default {
 </script>
 
 <style lang="stylus">
-@import './styles/config.styl';
+@import '../../styles/config.styl';
 
 $navbar-vertical-padding = 0.7rem;
 $navbar-horizontal-padding = 1.5rem;

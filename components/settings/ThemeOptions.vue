@@ -76,7 +76,7 @@ export default {
 </script>
 
 <style lang="stylus">
-@import './styles/config.styl';
+@import '../../styles/config.styl';
 
 .color-options {
 	display: flex;

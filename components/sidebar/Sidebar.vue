@@ -22,8 +22,8 @@
 <script>
 import SidebarGroup from './SidebarGroup.vue';
 import SidebarLink from './SidebarLink.vue';
-import NavLinks from './NavLinks.vue';
-import { isActive } from './util';
+import NavLinks from '../nav/NavLinks.vue';
+import { isActive } from '../../util.js';
 
 function resolveOpenGroupIndex(route, items) {
 	for (let i = 0; i < items.length; i++) {
@@ -77,7 +77,7 @@ export default {
 </script>
 
 <style lang="stylus">
-@import './styles/config.styl';
+@import '../../styles/config.styl';
 
 .sidebar {
 	ul {

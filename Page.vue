@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import { resolvePage, normalize, outboundRE, endingSlashRE } from './util';
+import { resolvePage, normalize, outboundRE, endingSlashRE } from './util.js';
 
 function find(page, items, offset) {
 	const res = [];

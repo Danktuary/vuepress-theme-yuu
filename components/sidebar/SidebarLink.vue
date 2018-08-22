@@ -1,5 +1,5 @@
 <script>
-import { isActive, hashRE, groupHeaders } from './util';
+import { isActive, hashRE, groupHeaders } from '../../util.js';
 
 function renderLink(h, to, text, active) {
 	return h('router-link', {
@@ -68,7 +68,7 @@ export default {
 </script>
 
 <style lang="stylus">
-@import './styles/config.styl'
+@import '../../styles/config.styl';
 
 .sidebar .sidebar-sub-headers {
 	padding-left: 1rem;
