@@ -58,6 +58,7 @@ export default {
 		border: 1px solid $borderColor;
 		border-radius: 4px;
 		transform: translateX(-50%);
+		z-index: 150;
 
 		&::before {
 			content: '';
