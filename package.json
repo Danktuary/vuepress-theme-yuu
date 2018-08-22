@@ -28,6 +28,6 @@
     "stylint": "^1.5.9"
   },
   "dependencies": {
-    "v-click-outside": "^1.0.5"
+    "vue-click-outside": "^1.0.7"
   }
 }

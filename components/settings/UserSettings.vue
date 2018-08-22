@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import vClickOutside from 'v-click-outside';
+import ClickOutside from 'vue-click-outside';
 import ThemeOptions from './ThemeOptions.vue';
 import CogIcon from './CogIcon.vue';
 
@@ -20,7 +20,7 @@ export default {
 	name: 'UserSettings',
 
 	directives: {
-		'click-outside': vClickOutside.directive,
+		'click-outside': ClickOutside,
 	},
 
 	components: { CogIcon, ThemeOptions },
