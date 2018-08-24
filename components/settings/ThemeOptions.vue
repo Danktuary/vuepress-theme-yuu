@@ -2,10 +2,10 @@
 	<div class="theme-options">
 		<ul class="color-theme-options">
 			<li>
-				<a href="#" class="default-theme" @click.prevent="changeTheme()"></a>
+				<a href="#" class="default-theme" @click.prevent="setTheme()"></a>
 			</li>
 			<li v-for="color in colorThemes" :key="color">
-				<a href="#" :class="`${color}-theme`" @click.prevent="changeTheme(color)"></a>
+				<a href="#" :class="`${color}-theme`" @click.prevent="setTheme(color)"></a>
 			</li>
 		</ul>
 		<div class="dark-theme-options toggle-option">
@@ -65,7 +65,7 @@ export default {
 
 		toggleForcedThemes() {
 			if (this.ignoreForcedThemes) {
-				this.changeTheme(localStorage.getItem('color-theme'));
+				this.setTheme(localStorage.getItem('color-theme'));
 				return localStorage.setItem('ignore-forced-themes', true);
 			}
 

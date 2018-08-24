@@ -6,15 +6,15 @@ export default {
 	},
 
 	mounted() {
-		this.enterPage();
+		this.setPageTheme();
 	},
 
 	beforeUpdate() {
-		this.updatePage();
+		this.setPageTheme();
 	},
 
 	methods: {
-		changeTheme(theme, persist = true) {
+		setTheme(theme, persist = true) {
 			const classes = document.body.classList;
 			const themes = this.colorThemes.map(colorTheme => `yuu-theme-${colorTheme}`);
 
@@ -34,21 +34,13 @@ export default {
 			}
 		},
 
-		enterPage() {
-			if (localStorage.getItem('ignore-forced-themes') === 'true') {
-				return;
-			}
-
-			this.changeTheme(this.$page.frontmatter.forceTheme, false);
-		},
-
-		updatePage() {
+		setPageTheme() {
 			if (localStorage.getItem('ignore-forced-themes') === 'true') {
 				return;
 			}
 
 			const theme = this.$page.frontmatter.forceTheme || localStorage.getItem('color-theme');
-			this.changeTheme(theme, false);
+			this.setTheme(theme, false);
 		},
 	},
 };
