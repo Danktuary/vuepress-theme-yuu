@@ -217,7 +217,7 @@ export default {
 	}
 }
 
-.blue {
+.yuu-theme-blue {
 	.algolia-search-wrapper .algolia-autocomplete {
 		.algolia-docsearch-suggestion {
 			.algolia-docsearch-suggestion--category-header {
@@ -237,7 +237,7 @@ export default {
 	}
 }
 
-.red {
+.yuu-theme-red {
 	.algolia-search-wrapper .algolia-autocomplete {
 		.algolia-docsearch-suggestion {
 			.algolia-docsearch-suggestion--category-header {

@@ -225,13 +225,13 @@ export default {
 	}
 }
 
-.blue {
+.yuu-theme-blue {
 	.page-edit .edit-link a {
 		color: $blueAccentColor;
 	}
 }
 
-.red {
+.yuu-theme-red {
 	.page-edit .edit-link a {
 		color: $redAccentColor;
 	}

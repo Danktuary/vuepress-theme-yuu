@@ -154,7 +154,7 @@ export default {
 	}
 }
 
-.blue {
+.yuu-theme-blue {
 	.dropdown-wrapper .nav-dropdown {
 		a {
 			&:hover,
@@ -169,7 +169,7 @@ export default {
 	}
 }
 
-.red {
+.yuu-theme-red {
 	.dropdown-wrapper .nav-dropdown {
 		a {
 			&:hover,

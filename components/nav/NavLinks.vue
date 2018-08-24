@@ -140,7 +140,7 @@ export default {
 	}
 }
 
-.blue {
+.yuu-theme-blue {
 	.nav-links a {
 		color: inherit;
 
@@ -151,7 +151,7 @@ export default {
 	}
 }
 
-.red {
+.yuu-theme-red {
 	.nav-links a {
 		color: inherit;
 
@@ -198,7 +198,7 @@ export default {
 		}
 	}
 
-	.blue {
+	.yuu-theme-blue {
 		.nav-item > a:not(.external) {
 			&:hover,
 			&.router-link-active {
@@ -207,7 +207,7 @@ export default {
 		}
 	}
 
-	.red {
+	.yuu-theme-red {
 		.nav-item > a:not(.external) {
 			&:hover,
 			&.router-link-active {

@@ -95,13 +95,13 @@ export default {
 	}
 }
 
-.blue {
+.yuu-theme-blue {
 	.sw-update-popup {
 		border-color: $blueAccentColor;
 	}
 }
 
-.red {
+.yuu-theme-red {
 	.sw-update-popup {
 		border-color: $redAccentColor;
 	}

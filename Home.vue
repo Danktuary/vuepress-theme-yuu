@@ -154,7 +154,7 @@ export default {
 	}
 }
 
-.blue {
+.yuu-theme-blue {
 	.hero .action-button {
 		background-color: $blueAccentColor;
 		border-bottom-color: darken($blueAccentColor, 10%);
@@ -165,7 +165,7 @@ export default {
 	}
 }
 
-.red {
+.yuu-theme-red {
 	.hero .action-button {
 		background-color: $redAccentColor;
 		border-bottom-color: darken($redAccentColor, 10%);

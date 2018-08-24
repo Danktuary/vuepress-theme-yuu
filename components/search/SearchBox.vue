@@ -258,7 +258,7 @@ export default {
 	}
 }
 
-.blue {
+.yuu-theme-blue {
 	.search-box {
 		input:focus {
 			border-color: alpha($blueAccentColor, 0.75);
@@ -272,7 +272,7 @@ export default {
 	}
 }
 
-.red {
+.yuu-theme-red {
 	.search-box {
 		input:focus {
 			border-color: alpha($redAccentColor, 0.75);

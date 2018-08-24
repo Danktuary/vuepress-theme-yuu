@@ -36,9 +36,10 @@ export default {
 
 	mounted() {
 		const classes = document.body.classList;
+		const theme = localStorage.getItem('color-theme');
 
-		if (localStorage.getItem('color-theme')) {
-			classes.add(localStorage.getItem('color-theme'));
+		if (theme) {
+			classes.add(`yuu-theme-${theme}`);
 		}
 
 		if (localStorage.getItem('dark-theme') === 'true') {
@@ -46,7 +47,7 @@ export default {
 			this.darkTheme = true;
 		}
 
-		if (localStorage.getItem('ignoreForcedThemes') === 'true') {
+		if (localStorage.getItem('ignore-forced-themes') === 'true') {
 			this.ignoreForcedThemes = true;
 		}
 	},

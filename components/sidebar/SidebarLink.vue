@@ -121,7 +121,7 @@ a.sidebar-link {
 	}
 }
 
-.blue {
+.yuu-theme-blue {
 	&.dark {
 		a.sidebar-link {
 			color: $darkAltTextColor;
@@ -142,7 +142,7 @@ a.sidebar-link {
 	}
 }
 
-.red {
+.yuu-theme-red {
 	&.dark {
 		a.sidebar-link {
 			color: $darkAltTextColor;
