@@ -116,10 +116,10 @@ export default {
 		margin-right: 0;
 
 		.user-settings-menu {
-			left: calc(50% - 25px);
+			left: calc(50% - 35px);
 
 			&::before {
-				left: calc(50% + 25px);
+				left: calc(50% + 35px);
 			}
 		}
 	}
