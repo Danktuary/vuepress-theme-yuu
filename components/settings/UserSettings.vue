@@ -57,12 +57,12 @@ export default {
 		}
 	}
 
-
 	.user-settings-menu {
 		background-color: #fff;
 		position: absolute;
 		top: 40px;
 		left: 50%;
+		min-width: 100px;
 		margin: 0;
 		padding: 1em;
 		border: 1px solid $borderColor;

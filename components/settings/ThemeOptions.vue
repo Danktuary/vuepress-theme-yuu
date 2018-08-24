@@ -83,6 +83,7 @@ export default {
 
 .color-theme-options {
 	display: flex;
+	justify-content: space-around;
 
 	li {
 		width: 33%;
