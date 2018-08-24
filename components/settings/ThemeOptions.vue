@@ -4,7 +4,7 @@
 			<li>
 				<a href="#" class="default-theme" @click.prevent="setTheme()"></a>
 			</li>
-			<li v-for="color in colorThemes" :key="color">
+			<li v-for="color in yuu.colorThemes" :key="color">
 				<a href="#" :class="`${color}-theme`" @click.prevent="setTheme(color)"></a>
 			</li>
 		</ul>
@@ -31,10 +31,13 @@ export default {
 		return {
 			darkTheme: false,
 			ignoreForcedThemes: false,
+			yuu: {},
 		};
 	},
 
 	mounted() {
+		this.yuu = this.$site.themeConfig.yuu;
+
 		const classes = document.body.classList;
 		const theme = localStorage.getItem('color-theme');
 

@@ -1,10 +1,4 @@
 export default {
-	data() {
-		return {
-			colorThemes: ['blue', 'red'],
-		};
-	},
-
 	mounted() {
 		this.setPageTheme();
 	},
@@ -15,15 +9,18 @@ export default {
 
 	methods: {
 		setTheme(theme, persist = true) {
+			const { yuu: { colorThemes } } = this.$site.themeConfig;
 			const classes = document.body.classList;
-			const themes = this.colorThemes.map(colorTheme => `yuu-theme-${colorTheme}`);
+			const themes = colorThemes.map(colorTheme => `yuu-theme-${colorTheme}`);
 
 			if (!theme) {
-				if (persist) {
-					localStorage.removeItem('color-theme');
-				}
-
+				if (persist) localStorage.removeItem('color-theme');
 				return classes.remove(...themes);
+			}
+
+			if (theme && !colorThemes.includes(theme)) {
+				const oldTheme = localStorage.getItem('color-theme');
+				return this.setTheme(colorThemes.includes(oldTheme) ? oldTheme : null);
 			}
 
 			classes.remove(...themes.filter(t => t !== `yuu-theme-${theme}`));
