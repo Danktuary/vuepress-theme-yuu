@@ -65,7 +65,11 @@ function resolveNext(page, items) {
 	return find(page, items, 1);
 }
 
+import themeHandler from './components/settings/themeHandler.js';
+
 export default {
+	mixins: [themeHandler],
+
 	props: ['sidebarItems'],
 
 	computed: {

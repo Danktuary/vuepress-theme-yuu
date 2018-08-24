@@ -25,9 +25,12 @@
 
 <script>
 import NavLink from './components/nav/NavLink.vue';
+import themeHandler from './components/settings/themeHandler.js';
 
 export default {
 	components: { NavLink },
+
+	mixins: [themeHandler],
 
 	computed: {
 		data() {

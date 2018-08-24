@@ -1,6 +1,6 @@
 <template>
 	<div class="theme-options">
-		<ul class="color-options">
+		<ul class="color-theme-options">
 			<li>
 				<a href="#" class="default-theme" @click.prevent="changeTheme()"></a>
 			</li>
@@ -8,60 +8,50 @@
 				<a href="#" :class="`${color}-theme`" @click.prevent="changeTheme(color)"></a>
 			</li>
 		</ul>
-		<div class="dark-theme-options">
-			<label for="dark-theme-toggle">
-				Enable Dark Theme ?
-			</label>
-			<input
-				id="dark-theme-toggle"
-				v-model="darkTheme"
-				type="checkbox"
-				@change="toggleDarkTheme"
-			/>
+		<div class="dark-theme-options toggle-option">
+			<label for="dark-theme-toggle">Enable Dark Theme?</label>
+			<input id="dark-theme-toggle" v-model="darkTheme" type="checkbox" @change="toggleDarkTheme" />
+		</div>
+		<div class="force-theme-options toggle-option">
+			<label for="force-theme-toggle">Ignore Forced Themes?</label>
+			<input id="force-theme-toggle" v-model="ignoreForcedThemes" type="checkbox" @change="toggleForcedThemes" />
 		</div>
 	</div>
 </template>
 
 <script>
+import themeHandler from './themeHandler.js';
+
 export default {
 	name: 'ThemeOptions',
+
+	mixins: [themeHandler],
 
 	data() {
 		return {
 			darkTheme: false,
-			colorThemes: ['blue', 'red'],
+			ignoreForcedThemes: false,
 		};
 	},
 
 	mounted() {
 		const classes = document.body.classList;
 
-		if (localStorage.getItem('color-scheme')) {
-			classes.add(localStorage.getItem('color-scheme'));
+		if (localStorage.getItem('color-theme')) {
+			classes.add(localStorage.getItem('color-theme'));
 		}
 
 		if (localStorage.getItem('dark-theme') === 'true') {
 			classes.add('dark');
 			this.darkTheme = true;
 		}
+
+		if (localStorage.getItem('ignoreForcedThemes') === 'true') {
+			this.ignoreForcedThemes = true;
+		}
 	},
 
 	methods: {
-		changeTheme(theme) {
-			const classes = document.body.classList;
-			const themes = ['blue', 'red'];
-
-			if (!theme) {
-				localStorage.removeItem('color-scheme');
-				return classes.remove(...themes);
-			}
-
-			classes.remove(...themes.filter(t => t !== theme));
-			classes.add(theme);
-
-			localStorage.setItem('color-scheme', theme);
-		},
-
 		toggleDarkTheme() {
 			if (this.darkTheme) {
 				document.body.classList.add('dark');
@@ -71,6 +61,15 @@ export default {
 			document.body.classList.remove('dark');
 			localStorage.removeItem('dark-theme');
 		},
+
+		toggleForcedThemes() {
+			if (this.ignoreForcedThemes) {
+				this.changeTheme(localStorage.getItem('color-theme'));
+				return localStorage.setItem('ignore-forced-themes', true);
+			}
+
+			localStorage.removeItem('ignore-forced-themes');
+		},
 	},
 };
 </script>
@@ -78,7 +77,7 @@ export default {
 <style lang="stylus">
 @import '../../styles/config.styl';
 
-.color-options {
+.color-theme-options {
 	display: flex;
 
 	li {
@@ -105,7 +104,7 @@ export default {
 	}
 }
 
-.dark-theme-options {
+.toggle-option {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;

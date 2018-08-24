@@ -32,9 +32,12 @@ import Page from './Page.vue';
 import Sidebar from './components/sidebar/Sidebar.vue';
 import SWUpdatePopup from './components/SWUpdatePopup.vue';
 import { resolveSidebarItems } from './util.js';
+import themeHandler from './components/settings/themeHandler.js';
 
 export default {
 	components: { Home, Page, Sidebar, Navbar, SWUpdatePopup },
+
+	mixins: [themeHandler],
 
 	data() {
 		return {
