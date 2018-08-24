@@ -8,11 +8,11 @@
 				<a href="#" :class="`${color}-theme`" @click.prevent="setTheme(color)"></a>
 			</li>
 		</ul>
-		<div class="dark-theme-options toggle-option">
+		<div v-if="!yuu.disableDarkTheme" class="dark-theme-options toggle-option">
 			<label for="dark-theme-toggle">Enable Dark Theme?</label>
 			<input id="dark-theme-toggle" v-model="darkTheme" type="checkbox" @change="toggleDarkTheme" />
 		</div>
-		<div class="force-theme-options toggle-option">
+		<div v-if="!yuu.disableThemeIgnore" class="force-theme-options toggle-option">
 			<label for="force-theme-toggle">Ignore Forced Themes?</label>
 			<input id="force-theme-toggle" v-model="ignoreForcedThemes" type="checkbox" @change="toggleForcedThemes" />
 		</div>
