@@ -71,7 +71,7 @@ export default {
 		},
 
 		pageClasses() {
-			const userPageClass = this.$page.frontmatter.pageClass;
+			const { pageClass } = this.$page.frontmatter;
 
 			return [
 				{
@@ -79,7 +79,7 @@ export default {
 					'sidebar-open': this.isSidebarOpen,
 					'no-sidebar': !this.shouldShowSidebar,
 				},
-				userPageClass,
+				pageClass,
 			];
 		},
 	},
