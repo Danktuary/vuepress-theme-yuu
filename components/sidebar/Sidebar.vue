@@ -112,7 +112,7 @@ export default {
 	}
 }
 
-.dark {
+.yuu-theme-dark {
 	.sidebar {
 		background-color: $darkPrimaryBg;
 		border-right-color: $darkBorderColor;

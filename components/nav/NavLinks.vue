@@ -179,7 +179,7 @@ export default {
 		}
 	}
 
-	.dark {
+	.yuu-theme-dark {
 		.nav-links a {
 			color: $darkTextColor;
 

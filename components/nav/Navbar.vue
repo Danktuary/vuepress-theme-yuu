@@ -130,7 +130,7 @@ $navbar-horizontal-padding = 1.5rem;
 	}
 }
 
-.dark {
+.yuu-theme-dark {
 	.navbar {
 		color: $darkTextColor;
 		background-color: $darkPrimaryBg;

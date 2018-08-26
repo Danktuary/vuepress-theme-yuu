@@ -89,7 +89,7 @@ export default {
 	transform: translate(0, 50%) scale(0.5);
 }
 
-.dark {
+.yuu-theme-dark {
 	.sw-update-popup {
 		background-color: $darkPrimaryBg;
 	}

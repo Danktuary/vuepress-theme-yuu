@@ -136,7 +136,7 @@ export default {
 	}
 }
 
-.dark {
+.yuu-theme-dark {
 	.dropdown-wrapper .nav-dropdown {
 		background-color: $darkPrimaryBg;
 		border-color: $darkBorderColor;

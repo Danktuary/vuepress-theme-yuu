@@ -38,9 +38,9 @@ export default {
 	mounted() {
 		this.yuu = this.$site.themeConfig.yuu;
 
-		if (!this.yuu.disableDarkTheme && localStorage.getItem('dark-theme') === 'true') {
-			document.body.classList.add('dark');
-			this.darkTheme = true;
+		if (!this.yuu.disableDarkTheme) {
+			this.darkTheme = localStorage.getItem('dark-theme') === 'true';
+			this.toggleDarkTheme();
 		}
 
 		if (!this.yuu.disableThemeIgnore) {
@@ -51,11 +51,11 @@ export default {
 	methods: {
 		toggleDarkTheme() {
 			if (this.darkTheme) {
-				document.body.classList.add('dark');
+				document.body.classList.add('yuu-theme-dark');
 				return localStorage.setItem('dark-theme', true);
 			}
 
-			document.body.classList.remove('dark');
+			document.body.classList.remove('yuu-theme-dark');
 			localStorage.removeItem('dark-theme');
 		},
 

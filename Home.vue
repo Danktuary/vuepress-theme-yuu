@@ -135,7 +135,7 @@ export default {
 	}
 }
 
-.dark {
+.yuu-theme-dark {
 	.home {
 		.hero .description,
 		.feature h2,

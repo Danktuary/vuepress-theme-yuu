@@ -112,7 +112,7 @@ export default {
 	}
 }
 
-.dark {
+.yuu-theme-dark {
 	.user-settings-menu {
 		background-color: $darkPrimaryBg;
 		border-color: $darkBorderColor;

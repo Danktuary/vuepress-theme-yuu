@@ -219,7 +219,7 @@ export default {
 	}
 }
 
-.dark {
+.yuu-theme-dark {
 	.page-nav .inner {
 		border-top-color: $darkBorderColor;
 	}

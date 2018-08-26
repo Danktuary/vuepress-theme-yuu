@@ -146,7 +146,7 @@ export default {
 	}
 }
 
-.dark {
+.yuu-theme-dark {
 	.algolia-search-wrapper .algolia-autocomplete {
 		.ds-dropdown-menu {
 			background-color: $darkPrimaryBg;

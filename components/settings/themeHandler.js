@@ -35,7 +35,9 @@ export default {
 		},
 
 		setPageTheme() {
-			if (!this.yuu.disableThemeIgnore && localStorage.getItem('ignore-forced-themes') === 'true') {
+			const { yuu } = this.$site.themeConfig;
+
+			if (!yuu.disableThemeIgnore && localStorage.getItem('ignore-forced-themes') === 'true') {
 				return;
 			}
 

@@ -226,7 +226,7 @@ export default {
 	}
 }
 
-.dark {
+.yuu-theme-dark {
 	.search-box {
 		input,
 		.suggestions {
