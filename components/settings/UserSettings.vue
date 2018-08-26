@@ -1,5 +1,5 @@
 <template>
-	<div v-click-outside="hideMenu" class="user-settings">
+	<div v-if="showSettings" v-click-outside="hideMenu" class="user-settings">
 		<a class="settings-button" href="#" @click.prevent="showMenu = !showMenu">
 			<CogIcon class="settings-icon" />
 		</a>
@@ -29,6 +29,18 @@ export default {
 		return {
 			showMenu: false,
 		};
+	},
+
+	computed: {
+		showSettings() {
+			const { yuu } = this.$site.themeConfig;
+
+			return (
+				(Array.isArray(yuu.colorThemes) && yuu.colorThemes.length)
+				|| !yuu.disableDarkTheme
+				|| !yuu.disableThemeIgnore
+			);
+		},
 	},
 
 	methods: {

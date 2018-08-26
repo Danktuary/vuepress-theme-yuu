@@ -10,6 +10,9 @@ export default {
 	methods: {
 		setTheme(theme, persist = true) {
 			const { yuu: { colorThemes } } = this.$site.themeConfig;
+
+			if (!Array.isArray(colorThemes) || !colorThemes.length) return;
+
 			const classes = document.body.classList;
 			const themes = colorThemes.map(colorTheme => `yuu-theme-${colorTheme}`);
 
@@ -32,7 +35,7 @@ export default {
 		},
 
 		setPageTheme() {
-			if (localStorage.getItem('ignore-forced-themes') === 'true') {
+			if (!this.yuu.disableThemeIgnore && localStorage.getItem('ignore-forced-themes') === 'true') {
 				return;
 			}
 

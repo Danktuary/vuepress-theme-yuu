@@ -1,6 +1,6 @@
 <template>
 	<div class="theme-options">
-		<ul class="color-theme-options">
+		<ul v-if="Array.isArray(yuu.colorThemes) && yuu.colorThemes.length" class="color-theme-options">
 			<li>
 				<a href="#" class="default-theme" @click.prevent="setTheme()"></a>
 			</li>
@@ -38,20 +38,13 @@ export default {
 	mounted() {
 		this.yuu = this.$site.themeConfig.yuu;
 
-		const classes = document.body.classList;
-		const theme = localStorage.getItem('color-theme');
-
-		if (theme) {
-			classes.add(`yuu-theme-${theme}`);
-		}
-
-		if (localStorage.getItem('dark-theme') === 'true') {
-			classes.add('dark');
+		if (!this.yuu.disableDarkTheme && localStorage.getItem('dark-theme') === 'true') {
+			document.body.classList.add('dark');
 			this.darkTheme = true;
 		}
 
-		if (localStorage.getItem('ignore-forced-themes') === 'true') {
-			this.ignoreForcedThemes = true;
+		if (!this.yuu.disableThemeIgnore) {
+			this.ignoreForcedThemes = localStorage.getItem('ignore-forced-themes') === 'true';
 		}
 	},
 
