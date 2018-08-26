@@ -191,7 +191,7 @@ export default {
 
 		.prefix {
 			font-weight: 500;
-			color: lighten($textColor, 25%);
+			color: $accentColor;
 		}
 
 		.time {
@@ -226,14 +226,26 @@ export default {
 }
 
 .yuu-theme-blue {
-	.page-edit .edit-link a {
-		color: $blueAccentColor;
+	.page-edit {
+		.edit-link a {
+			color: $blueAccentColor;
+		}
+
+		.last-updated .prefix {
+			color: $blueAccentColor;
+		}
 	}
 }
 
 .yuu-theme-red {
-	.page-edit .edit-link a {
-		color: $redAccentColor;
+	.page-edit {
+		.edit-link a {
+			color: $redAccentColor;
+		}
+
+		.last-updated .prefix {
+			color: $redAccentColor;
+		}
 	}
 }
 
