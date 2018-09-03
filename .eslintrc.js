@@ -6,7 +6,7 @@ module.exports = {
 		'radix': ['error', 'as-needed'],
 		'no-negated-condition': 'off',
 		'operator-linebreak': ['error', 'before'],
-		'quote-props': ['error', 'consistent-as-needed'],
+		'quote-props': ['error', 'as-needed'],
 		'vue/max-attributes-per-line': ['error', {
 			singleline: 4,
 			multiline: {
