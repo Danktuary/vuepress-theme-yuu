@@ -9,7 +9,7 @@ export default {
 
 	methods: {
 		setTheme(theme, persist = true) {
-			const { yuu: { colorThemes } } = this.$site.themeConfig;
+			const { colorThemes } = this.$site.themeConfig.yuu;
 
 			if (!Array.isArray(colorThemes) || !colorThemes.length) return;
 
