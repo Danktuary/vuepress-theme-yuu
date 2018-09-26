@@ -1,6 +1,6 @@
 <template>
 	<div class="theme-options">
-		<ul v-if="Array.isArray(yuu.colorThemes) && yuu.colorThemes.length" class="color-theme-options">
+		<ul v-if="showColorThemes" class="color-theme-options">
 			<li>
 				<a href="#" class="default-theme" @click.prevent="setTheme()"></a>
 			</li>
@@ -33,6 +33,13 @@ export default {
 			ignoreForcedThemes: false,
 			yuu: {},
 		};
+	},
+
+	computed: {
+		showColorThemes() {
+			const { yuu } = this.$site.themeConfig;
+			return Array.isArray(yuu.colorThemes) && yuu.colorThemes.length;
+		},
 	},
 
 	mounted() {
