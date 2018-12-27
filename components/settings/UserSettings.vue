@@ -15,6 +15,7 @@
 import ClickOutside from 'vue-click-outside';
 import ThemeOptions from './ThemeOptions.vue';
 import CogIcon from './CogIcon.vue';
+import yuuConfig from './yuuConfig.js';
 
 export default {
 	name: 'UserSettings',
@@ -25,6 +26,8 @@ export default {
 
 	components: { CogIcon, ThemeOptions },
 
+	mixins: [yuuConfig],
+
 	data() {
 		return {
 			showMenu: false,
@@ -33,13 +36,8 @@ export default {
 
 	computed: {
 		showSettings() {
-			const { yuu = {} } = this.$site.themeConfig;
-
-			return (
-				(Array.isArray(yuu.colorThemes) && yuu.colorThemes.length)
-				|| yuu.disableDarkTheme !== true
-				|| yuu.disableThemeIgnore !== true
-			);
+			const { yuu } = this;
+			return yuu.hasThemes || yuu.disableDarkTheme !== true || yuu.disableThemeIgnore !== true;
 		},
 	},
 

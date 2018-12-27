@@ -1,10 +1,10 @@
 <template>
 	<div class="theme-options">
-		<ul v-if="showColorThemes" class="color-theme-options">
+		<ul v-if="yuu.hasThemes" class="color-theme-options">
 			<li>
 				<a href="#" class="default-theme" @click.prevent="setTheme()"></a>
 			</li>
-			<li v-for="color in yuu.colorThemes" :key="color">
+			<li v-for="color in yuu.themes" :key="color">
 				<a href="#" :class="`${color}-theme`" @click.prevent="setTheme(color)"></a>
 			</li>
 		</ul>
@@ -12,7 +12,7 @@
 			<label for="dark-theme-toggle">Enable Dark Theme?</label>
 			<input id="dark-theme-toggle" v-model="darkTheme" type="checkbox" @change="toggleDarkTheme" />
 		</div>
-		<div v-if="showColorThemes && !yuu.disableThemeIgnore" class="force-theme-options toggle-option">
+		<div v-if="yuu.hasThemes && !yuu.disableThemeIgnore" class="force-theme-options toggle-option">
 			<label for="force-theme-toggle">Ignore Forced Themes?</label>
 			<input id="force-theme-toggle" v-model="ignoreForcedThemes" type="checkbox" @change="toggleForcedThemes" />
 		</div>
@@ -20,31 +20,22 @@
 </template>
 
 <script>
+import yuuConfig from './yuuConfig.js';
 import themeHandler from './themeHandler.js';
 
 export default {
 	name: 'ThemeOptions',
 
-	mixins: [themeHandler],
+	mixins: [yuuConfig, themeHandler],
 
 	data() {
 		return {
 			darkTheme: false,
 			ignoreForcedThemes: false,
-			yuu: {},
 		};
 	},
 
-	computed: {
-		showColorThemes() {
-			const { colorThemes } = this.$site.themeConfig.yuu || {};
-			return Array.isArray(colorThemes) && colorThemes.length;
-		},
-	},
-
 	mounted() {
-		this.yuu = this.$site.themeConfig.yuu || {};
-
 		if (this.yuu.disableDarkTheme !== true) {
 			this.darkTheme = localStorage.getItem('dark-theme') === 'true';
 			this.toggleDarkTheme();
