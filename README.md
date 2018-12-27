@@ -41,13 +41,13 @@ module.exports = {
 
 ### Color themes
 
-Yuu currently supports 3 color themes: the default (green) theme, a blue theme, and a red theme. If you want to include any of the non-default themes, you'll need to be explicit about which ones.
+Yuu currently supports 3 color themes: the default (green) theme, a blue theme, and a red theme. By default, any additional themes will be included. If you only want to use certain themes, you'll need to be explicit about which ones.
 
 ```js
 module.exports = {
 	themeConfig: {
 		yuu: {
-			colorThemes: ['blue', 'red'],
+			colorThemes: ['red'],
 		},
 	},
 };
