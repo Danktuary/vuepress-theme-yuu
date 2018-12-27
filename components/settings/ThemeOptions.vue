@@ -37,20 +37,20 @@ export default {
 
 	computed: {
 		showColorThemes() {
-			const { yuu } = this.$site.themeConfig;
-			return Array.isArray(yuu.colorThemes) && yuu.colorThemes.length;
+			const { colorThemes } = this.$site.themeConfig.yuu || {};
+			return Array.isArray(colorThemes) && colorThemes.length;
 		},
 	},
 
 	mounted() {
-		this.yuu = this.$site.themeConfig.yuu;
+		this.yuu = this.$site.themeConfig.yuu || {};
 
-		if (!this.yuu.disableDarkTheme) {
+		if (this.yuu.disableDarkTheme !== true) {
 			this.darkTheme = localStorage.getItem('dark-theme') === 'true';
 			this.toggleDarkTheme();
 		}
 
-		if (!this.yuu.disableThemeIgnore) {
+		if (this.yuu.disableThemeIgnore !== true) {
 			this.ignoreForcedThemes = localStorage.getItem('ignore-forced-themes') === 'true';
 		}
 	},

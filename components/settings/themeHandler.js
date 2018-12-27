@@ -9,7 +9,7 @@ export default {
 
 	methods: {
 		setTheme(theme, persist = true) {
-			const { colorThemes } = this.$site.themeConfig.yuu;
+			const { colorThemes } = this.$site.themeConfig.yuu || {};
 
 			if (!Array.isArray(colorThemes) || !colorThemes.length) return;
 
@@ -35,9 +35,9 @@ export default {
 		},
 
 		setPageTheme() {
-			const { yuu } = this.$site.themeConfig;
+			const { yuu = {} } = this.$site.themeConfig;
 
-			if (!yuu.disableThemeIgnore && localStorage.getItem('ignore-forced-themes') === 'true') {
+			if (yuu.disableThemeIgnore !== true && localStorage.getItem('ignore-forced-themes') === 'true') {
 				return;
 			}
 

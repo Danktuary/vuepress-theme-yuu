@@ -33,12 +33,12 @@ export default {
 
 	computed: {
 		showSettings() {
-			const { yuu } = this.$site.themeConfig;
+			const { yuu = {} } = this.$site.themeConfig;
 
 			return (
 				(Array.isArray(yuu.colorThemes) && yuu.colorThemes.length)
-				|| !yuu.disableDarkTheme
-				|| !yuu.disableThemeIgnore
+				|| yuu.disableDarkTheme !== true
+				|| yuu.disableThemeIgnore !== true
 			);
 		},
 	},
