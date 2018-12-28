@@ -12,7 +12,7 @@
     "customize",
     "options"
   ],
-  "main": "Layout.vue",
+  "main": "index.js",
   "repository": "https://github.com/Danktuary/vuepress-theme-yuu.git",
   "author": "Sanctuary <sanc.pw@gmail.com>",
   "license": "MIT",
