@@ -36,6 +36,8 @@ import yuuConfig from './components/settings/yuuConfig.js';
 import themeHandler from './components/settings/themeHandler.js';
 
 export default {
+	name: 'Layout',
+
 	components: {
 		Home,
 		Page,

@@ -10,6 +10,8 @@
 
 <script>
 export default {
+	name: 'SWUpdatePopup',
+
 	props: {
 		updateEvent: {
 			type: Object,

@@ -23,6 +23,8 @@ import { resolveNavLinkItem } from '../../util.js';
 import NavLink from './NavLink.vue';
 
 export default {
+	name: 'NavLinks',
+
 	components: {
 		NavLink,
 		DropdownLink,

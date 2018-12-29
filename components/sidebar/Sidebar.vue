@@ -36,6 +36,8 @@ function resolveOpenGroupIndex(route, items) {
 }
 
 export default {
+	name: 'Sidebar',
+
 	components: {
 		SidebarGroup,
 		SidebarLink,

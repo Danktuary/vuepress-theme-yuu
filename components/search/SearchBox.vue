@@ -38,6 +38,8 @@
 
 <script>
 export default {
+	name: 'SearchBox',
+
 	data() {
 		return {
 			query: '',

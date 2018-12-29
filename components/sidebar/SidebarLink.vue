@@ -29,6 +29,8 @@ function renderChildren(h, children, path, route, maxDepth, depth = 1) {
 }
 
 export default {
+	name: 'SidebarLink',
+
 	functional: true,
 
 	props: ['item'],

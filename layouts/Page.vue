@@ -68,6 +68,8 @@ function resolveNext(page, items) {
 import themeHandler from './components/settings/themeHandler.js';
 
 export default {
+	name: 'Page',
+
 	mixins: [themeHandler],
 
 	props: ['sidebarItems'],

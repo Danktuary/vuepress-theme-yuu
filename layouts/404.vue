@@ -17,6 +17,8 @@ const messages = [
 ];
 
 export default {
+	name: '404',
+
 	methods: {
 		displayMessage() {
 			return messages[Math.floor(Math.random() * messages.length)];

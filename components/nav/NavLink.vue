@@ -18,6 +18,8 @@
 import { isExternal, isMailto, isTel, ensureExt } from '../../util.js';
 
 export default {
+	name: 'NavLink',
+
 	props: {
 		item: {
 			required: true,

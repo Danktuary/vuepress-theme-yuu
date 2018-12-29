@@ -16,6 +16,13 @@
 	</div>
 </template>
 
+<script>
+export default {
+	name: 'SidebarButton',
+};
+</script>
+
+
 <style lang="stylus">
 @import '../../styles/config.styl';
 

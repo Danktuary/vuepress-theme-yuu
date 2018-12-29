@@ -6,6 +6,8 @@
 
 <script>
 export default {
+	name: 'AlgoliaSearchBox',
+
 	props: ['options'],
 
 	watch: {
