@@ -35,7 +35,10 @@ import NavLink from './NavLink.vue';
 import DropdownTransition from './DropdownTransition.vue';
 
 export default {
-	components: { NavLink, DropdownTransition },
+	components: {
+		NavLink,
+		DropdownTransition,
+	},
 
 	props: {
 		item: {

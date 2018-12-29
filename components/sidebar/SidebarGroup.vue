@@ -20,7 +20,12 @@ import DropdownTransition from '../nav/DropdownTransition.vue';
 
 export default {
 	name: 'SidebarGroup',
-	components: { SidebarLink, DropdownTransition },
+
+	components: {
+		SidebarLink,
+		DropdownTransition,
+	},
+
 	props: ['item', 'first', 'open', 'collapsable'],
 };
 </script>

@@ -36,7 +36,13 @@ import yuuConfig from './components/settings/yuuConfig.js';
 import themeHandler from './components/settings/themeHandler.js';
 
 export default {
-	components: { Home, Page, Sidebar, Navbar, SWUpdatePopup },
+	components: {
+		Home,
+		Page,
+		Sidebar,
+		Navbar,
+		SWUpdatePopup,
+	},
 
 	mixins: [yuuConfig, themeHandler],
 
@@ -49,14 +55,14 @@ export default {
 
 	computed: {
 		shouldShowNavbar() {
-			const { themeConfig } = this.$site;
+			const { themeConfig: theme } = this.$site;
 			const { frontmatter } = this.$page;
 
-			if (frontmatter.navbar === false || themeConfig.navbar === false) {
+			if (frontmatter.navbar === false || theme.navbar === false) {
 				return false;
 			}
 
-			return this.$title || themeConfig.logo || themeConfig.repo || themeConfig.nav || this.$themeLocaleConfig.nav;
+			return this.$title || theme.logo || theme.repo || theme.nav || this.$themeLocaleConfig.nav;
 		},
 
 		shouldShowSidebar() {
@@ -66,12 +72,7 @@ export default {
 		},
 
 		sidebarItems() {
-			return resolveSidebarItems(
-				this.$page,
-				this.$route,
-				this.$site,
-				this.$localePath
-			);
+			return resolveSidebarItems(this.$page, this.$route, this.$site, this.$localePath);
 		},
 
 		pageClasses() {
@@ -128,12 +129,8 @@ export default {
 			const dy = e.changedTouches[0].clientY - this.touchStart.y;
 
 			if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
-				if (dx > 0 && this.touchStart.x <= 80) {
-					this.toggleSidebar(true);
-				}
-				else {
-					this.toggleSidebar(false);
-				}
+				const openSidebar = dx > 0 && this.touchStart.x <= 80;
+				this.toggleSidebar(openSidebar);
 			}
 		},
 

@@ -29,7 +29,9 @@ import yuuConfig from './components/settings/yuuConfig.js';
 import themeHandler from './components/settings/themeHandler.js';
 
 export default {
-	components: { NavLink },
+	components: {
+		NavLink,
+	},
 
 	mixins: [yuuConfig, themeHandler],
 

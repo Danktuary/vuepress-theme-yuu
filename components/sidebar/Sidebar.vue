@@ -36,7 +36,11 @@ function resolveOpenGroupIndex(route, items) {
 }
 
 export default {
-	components: { SidebarGroup, SidebarLink, NavLinks },
+	components: {
+		SidebarGroup,
+		SidebarLink,
+		NavLinks,
+	},
 
 	props: ['items'],
 

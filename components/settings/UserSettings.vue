@@ -24,7 +24,10 @@ export default {
 		'click-outside': ClickOutside,
 	},
 
-	components: { CogIcon, ThemeOptions },
+	components: {
+		CogIcon,
+		ThemeOptions,
+	},
 
 	mixins: [yuuConfig],
 
