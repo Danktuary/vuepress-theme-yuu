@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import { resolvePage, normalize, outboundRE, endingSlashRE } from './util.js';
+import { resolvePage, normalize, outboundRE, endingSlashRE } from '../util.js';
 
 function find(page, items, offset) {
 	const res = [];
@@ -166,8 +166,8 @@ export default {
 </script>
 
 <style lang="stylus">
-@import './styles/config.styl';
-@require './styles/wrapper.styl';
+@import '../styles/config.styl';
+@require '../styles/wrapper.styl';
 
 .page {
 	padding-bottom: 2rem;

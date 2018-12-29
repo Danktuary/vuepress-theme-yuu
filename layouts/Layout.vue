@@ -27,13 +27,13 @@
 import Vue from 'vue';
 import nprogress from 'nprogress';
 import Home from './Home.vue';
-import Navbar from './components/nav/Navbar.vue';
+import Navbar from '../components/nav/Navbar.vue';
 import Page from './Page.vue';
-import Sidebar from './components/sidebar/Sidebar.vue';
-import SWUpdatePopup from './components/SWUpdatePopup.vue';
-import { resolveSidebarItems } from './util.js';
-import yuuConfig from './components/settings/yuuConfig.js';
-import themeHandler from './components/settings/themeHandler.js';
+import Sidebar from '../components/sidebar/Sidebar.vue';
+import SWUpdatePopup from '../components/SWUpdatePopup.vue';
+import { resolveSidebarItems } from '../util.js';
+import yuuConfig from '../components/settings/yuuConfig.js';
+import themeHandler from '../components/settings/themeHandler.js';
 
 export default {
 	name: 'Layout',
@@ -144,4 +144,4 @@ export default {
 </script>
 
 <style src="prismjs/themes/prism-tomorrow.css"></style>
-<style src="./styles/theme.styl" lang="stylus"></style>
+<style src="../styles/theme.styl" lang="stylus"></style>

@@ -24,9 +24,9 @@
 </template>
 
 <script>
-import NavLink from './components/nav/NavLink.vue';
-import yuuConfig from './components/settings/yuuConfig.js';
-import themeHandler from './components/settings/themeHandler.js';
+import NavLink from '../components/nav/NavLink.vue';
+import yuuConfig from '../components/settings/yuuConfig.js';
+import themeHandler from '../components/settings/themeHandler.js';
 
 export default {
 	name: 'Home',
@@ -53,7 +53,7 @@ export default {
 </script>
 
 <style lang="stylus">
-@import './styles/config.styl';
+@import '../styles/config.styl';
 
 .home {
 	padding: $navbarHeight 2rem 0;
