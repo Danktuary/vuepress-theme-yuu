@@ -35,6 +35,7 @@
 </template>
 
 <script>
+import themeHandler from '../components/settings/themeHandler.js';
 import { resolvePage, normalize, outboundRE, endingSlashRE } from '../util.js';
 
 function find(page, items, offset) {
@@ -64,8 +65,6 @@ function resolvePrev(page, items) {
 function resolveNext(page, items) {
 	return find(page, items, 1);
 }
-
-import themeHandler from './components/settings/themeHandler.js';
 
 export default {
 	name: 'Page',

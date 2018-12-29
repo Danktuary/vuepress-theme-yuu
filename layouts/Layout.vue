@@ -27,8 +27,8 @@
 import Vue from 'vue';
 import nprogress from 'nprogress';
 import Home from './Home.vue';
-import Navbar from '../components/nav/Navbar.vue';
 import Page from './Page.vue';
+import Navbar from '../components/nav/Navbar.vue';
 import Sidebar from '../components/sidebar/Sidebar.vue';
 import SWUpdatePopup from '../components/SWUpdatePopup.vue';
 import { resolveSidebarItems } from '../util.js';
