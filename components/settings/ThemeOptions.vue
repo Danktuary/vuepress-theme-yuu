@@ -1,5 +1,8 @@
 <template>
 	<div class="theme-options">
+		<div v-if="yuu.extraOptions && yuu.extraOptions.above" class="user-options-above">
+			<component :is="yuu.extraOptions.above" />
+		</div>
 		<ul v-if="yuu.hasThemes" class="color-theme-options">
 			<li>
 				<a href="#" class="default-theme" @click.prevent="setTheme()"></a>
@@ -15,6 +18,9 @@
 		<div v-if="yuu.hasThemes && !yuu.disableThemeIgnore" class="force-theme-options toggle-option">
 			<label for="force-theme-toggle">Ignore Forced Themes?</label>
 			<input id="force-theme-toggle" v-model="ignoreForcedThemes" type="checkbox" @change="toggleForcedThemes" />
+		</div>
+		<div v-if="yuu.extraOptions && yuu.extraOptions.below" class="user-options-below">
+			<component :is="yuu.extraOptions.below" />
 		</div>
 	</div>
 </template>

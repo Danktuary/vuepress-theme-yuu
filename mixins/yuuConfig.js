@@ -12,6 +12,7 @@ export default {
 			themes: yuu.colorThemes || ['blue', 'red'],
 			disableDarkTheme: yuu.disableDarkTheme || false,
 			disableThemeIgnore: yuu.disableThemeIgnore || false,
+			extraOptions: yuu.extraOptions || {},
 		};
 
 		this.yuu.hasThemes = Array.isArray(this.yuu.themes) && this.yuu.themes.length > 0;
