@@ -35,11 +35,11 @@ export default {
 		},
 
 		setPageTheme() {
-			if (this.yuu.disableThemeIgnore !== true && localStorage.getItem('ignore-forced-themes') === 'true') {
-				return;
-			}
+			const { forceTheme } = this.$page.frontmatter;
+			const colorTheme = localStorage.getItem('color-theme');
+			const ignoreForcedThemes = localStorage.getItem('ignore-forced-themes') === 'true';
+			const theme = this.yuu.disableThemeIgnore !== true && ignoreForcedThemes ? colorTheme : forceTheme || colorTheme;
 
-			const theme = this.$page.frontmatter.forceTheme || localStorage.getItem('color-theme');
 			this.setTheme(theme, false);
 		},
 	},
