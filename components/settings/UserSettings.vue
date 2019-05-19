@@ -15,7 +15,7 @@
 import ClickOutside from 'vue-click-outside';
 import ThemeOptions from './ThemeOptions.vue';
 import CogIcon from './CogIcon.vue';
-import yuuConfig from './yuuConfig.js';
+import yuuConfig from '../../mixins/yuuConfig.js';
 
 export default {
 	name: 'UserSettings',

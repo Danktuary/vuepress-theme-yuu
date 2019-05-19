@@ -35,7 +35,6 @@
 </template>
 
 <script>
-import themeHandler from '../components/settings/themeHandler.js';
 import { resolvePage, normalize, outboundRE, endingSlashRE } from '../util.js';
 
 function find(page, items, offset) {
@@ -68,8 +67,6 @@ function resolveNext(page, items) {
 
 export default {
 	name: 'Page',
-
-	mixins: [themeHandler],
 
 	props: ['sidebarItems'],
 

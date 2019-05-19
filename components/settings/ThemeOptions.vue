@@ -20,52 +20,14 @@
 </template>
 
 <script>
-import yuuConfig from './yuuConfig.js';
-import themeHandler from './themeHandler.js';
+import yuuConfig from '../../mixins/yuuConfig.js';
+import themeHandler from '../../mixins/themeHandler.js';
+import darkThemeHandler from '../../mixins/darkThemeHandler.js';
 
 export default {
 	name: 'ThemeOptions',
-
-	mixins: [yuuConfig, themeHandler],
-
-	data() {
-		return {
-			darkTheme: false,
-			ignoreForcedThemes: false,
-		};
-	},
-
-	mounted() {
-		if (this.yuu.disableDarkTheme !== true) {
-			this.darkTheme = localStorage.getItem('dark-theme') === 'true';
-			this.toggleDarkTheme();
-		}
-
-		if (this.yuu.disableThemeIgnore !== true) {
-			this.ignoreForcedThemes = localStorage.getItem('ignore-forced-themes') === 'true';
-		}
-	},
-
-	methods: {
-		toggleDarkTheme() {
-			if (this.darkTheme) {
-				document.body.classList.add('yuu-theme-dark');
-				return localStorage.setItem('dark-theme', true);
-			}
-
-			document.body.classList.remove('yuu-theme-dark');
-			localStorage.removeItem('dark-theme');
-		},
-
-		toggleForcedThemes() {
-			if (this.ignoreForcedThemes) {
-				this.setTheme(localStorage.getItem('color-theme'));
-				return localStorage.setItem('ignore-forced-themes', true);
-			}
-
-			localStorage.removeItem('ignore-forced-themes');
-		},
-	},
+	
+	mixins: [yuuConfig, themeHandler, darkThemeHandler],
 };
 </script>
 
