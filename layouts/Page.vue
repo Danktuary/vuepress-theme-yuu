@@ -35,6 +35,8 @@
 </template>
 
 <script>
+import yuuConfig from '../mixins/yuuConfig.js';
+import themeHandler from '../mixins/themeHandler.js';
 import { resolvePage, normalize, outboundRE, endingSlashRE } from '../util.js';
 
 function find(page, items, offset) {
@@ -69,6 +71,8 @@ export default {
 	name: 'Page',
 
 	props: ['sidebarItems'],
+
+	mixins: [yuuConfig, themeHandler],
 
 	computed: {
 		lastUpdated() {

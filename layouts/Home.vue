@@ -25,6 +25,8 @@
 
 <script>
 import NavLink from '../components/nav/NavLink.vue';
+import yuuConfig from '../mixins/yuuConfig.js';
+import themeHandler from '../mixins/themeHandler.js';
 
 export default {
 	name: 'Home',
@@ -32,6 +34,8 @@ export default {
 	components: {
 		NavLink,
 	},
+
+	mixins: [yuuConfig, themeHandler],
 
 	computed: {
 		data() {

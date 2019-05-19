@@ -12,7 +12,7 @@
 			<slot slot="bottom" name="sidebar-bottom"></slot>
 		</Sidebar>
 		<div v-if="$page.frontmatter.layout" class="custom-layout">
-			<component :is="$page.frontmatter.layout" />
+			<component :is="$page.frontmatter.layout" @hook:beforeUpdate="setPageTheme()" />
 		</div>
 		<Home v-else-if="$page.frontmatter.home" />
 		<Page v-else :sidebar-items="sidebarItems">
@@ -32,6 +32,8 @@ import Navbar from './components/nav/Navbar.vue';
 import Sidebar from './components/sidebar/Sidebar.vue';
 import SWUpdatePopup from './components/SWUpdatePopup.vue';
 import { resolveSidebarItems } from './util.js';
+import yuuConfig from './mixins/yuuConfig.js';
+import themeHandler from './mixins/themeHandler.js';
 
 export default {
 	name: 'Layout',
@@ -43,6 +45,8 @@ export default {
 		Navbar,
 		SWUpdatePopup,
 	},
+
+	mixins: [yuuConfig, themeHandler],
 
 	data() {
 		return {
