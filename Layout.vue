@@ -26,14 +26,12 @@
 <script>
 import Vue from 'vue';
 import nprogress from 'nprogress';
-import Home from './Home.vue';
-import Page from './Page.vue';
-import Navbar from '../components/nav/Navbar.vue';
-import Sidebar from '../components/sidebar/Sidebar.vue';
-import SWUpdatePopup from '../components/SWUpdatePopup.vue';
-import { resolveSidebarItems } from '../util.js';
-import yuuConfig from '../components/settings/yuuConfig.js';
-import themeHandler from '../components/settings/themeHandler.js';
+import Home from './layouts/Home.vue';
+import Page from './layouts/Page.vue';
+import Navbar from './components/nav/Navbar.vue';
+import Sidebar from './components/sidebar/Sidebar.vue';
+import SWUpdatePopup from './components/SWUpdatePopup.vue';
+import { resolveSidebarItems } from './util.js';
 
 export default {
 	name: 'Layout',
@@ -45,8 +43,6 @@ export default {
 		Navbar,
 		SWUpdatePopup,
 	},
-
-	mixins: [yuuConfig, themeHandler],
 
 	data() {
 		return {
@@ -144,4 +140,4 @@ export default {
 </script>
 
 <style src="prismjs/themes/prism-tomorrow.css"></style>
-<style src="../styles/theme.styl" lang="stylus"></style>
+<style src="./styles/theme.styl" lang="stylus"></style>
