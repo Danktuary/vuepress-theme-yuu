@@ -76,3 +76,20 @@ module.exports = {
 	},
 };
 ```
+
+### Extra options
+
+If you want to add your own options to the dropdown menu, you can do so via the `extraOptions` setting. The strings provided are the names of the components to use (most likely located in your `/docs/.vuepress/components/` directory).
+
+```js
+module.exports = {
+	themeConfig: {
+		yuu: {
+			extraOptions: {
+				above: 'AboveContent',
+				below: 'BelowContent',
+			},
+		},
+	},
+};
+```
