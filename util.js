@@ -69,8 +69,7 @@ function resolvePath(relative, base, append) {
 
 		if (segment === '..') {
 			stack.pop();
-		}
-		else if (segment !== '.') {
+		} else if (segment !== '.') {
 			stack.push(segment);
 		}
 	}
@@ -107,8 +106,7 @@ export function groupHeaders(headers) {
 	headers.forEach(h => {
 		if (h.level === 2) {
 			lastH2 = h;
-		}
-		else if (lastH2) {
+		} else if (lastH2) {
 			(lastH2.children || (lastH2.children = [])).push(h);
 		}
 	});
@@ -140,7 +138,7 @@ export function resolveMatchingConfig(route, config) {
 	if (Array.isArray(config)) {
 		return {
 			base: '/',
-			config: config,
+			config,
 		};
 	}
 	for (const base in config) {
@@ -157,8 +155,7 @@ export function resolveMatchingConfig(route, config) {
 function resolveItem(item, pages, base, isNested) {
 	if (typeof item === 'string') {
 		return resolvePage(pages, item, base);
-	}
-	else if (Array.isArray(item)) {
+	} else if (Array.isArray(item)) {
 		return Object.assign(resolvePage(pages, item[0], base), {
 			title: item[1],
 		});

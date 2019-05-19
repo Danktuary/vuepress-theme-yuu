@@ -40,7 +40,7 @@ export default {
 
 			if (locales && Object.keys(locales).length > 1) {
 				const currentLink = this.$page.path;
-				const routes = this.$router.options.routes;
+				const { routes } = this.$router.options;
 				const themeLocales = this.$site.themeConfig.locales || {};
 
 				const languageDropdown = {
@@ -53,8 +53,7 @@ export default {
 						// Stay on the current page
 						if (locale.lang === this.$lang) {
 							link = currentLink;
-						}
-						else {
+						} else {
 							// Try to stay on the same page
 							link = currentLink.replace(this.$localeConfig.path, path);
 

@@ -74,8 +74,7 @@ export default {
 
 				if (matches(p)) {
 					res.push(p);
-				}
-				else if (p.headers) {
+				} else if (p.headers) {
 					for (let j = 0; j < p.headers.length; j++) {
 						if (res.length >= max) break;
 
@@ -117,8 +116,7 @@ export default {
 			if (this.showSuggestions) {
 				if (this.focusIndex > 0) {
 					this.focusIndex--;
-				}
-				else {
+				} else {
 					this.focusIndex = this.suggestions.length - 1;
 				}
 			}
@@ -128,8 +126,7 @@ export default {
 			if (this.showSuggestions) {
 				if (this.focusIndex < this.suggestions.length - 1) {
 					this.focusIndex++;
-				}
-				else {
+				} else {
 					this.focusIndex = 0;
 				}
 			}

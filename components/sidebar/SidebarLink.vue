@@ -8,7 +8,7 @@ function renderLink(h, to, text, active) {
 			activeClass: '',
 			exactActiveClass: '',
 		},
-		class: {
+		'class': {
 			active,
 			'sidebar-link': true,
 		},
@@ -18,10 +18,10 @@ function renderLink(h, to, text, active) {
 function renderChildren(h, children, path, route, maxDepth, depth = 1) {
 	if (!children || depth > maxDepth) return null;
 
-	return h('ul', { class: 'sidebar-sub-headers' }, children.map(c => {
+	return h('ul', { 'class': 'sidebar-sub-headers' }, children.map(c => {
 		const active = isActive(route, `${path}#${c.slug}`);
 
-		return h('li', { class: 'sidebar-sub-header' }, [
+		return h('li', { 'class': 'sidebar-sub-header' }, [
 			renderLink(h, `${path}#${c.slug}`, c.title, active),
 			renderChildren(h, c.children, path, route, maxDepth, depth + 1),
 		]);
@@ -58,8 +58,7 @@ export default {
 
 		if (item.type === 'auto') {
 			return [link, renderChildren(h, item.children, item.basePath, $route, maxDepth)];
-		}
-		else if ((active || displayAllHeaders) && item.headers && !hashRE.test(item.path)) {
+		} else if ((active || displayAllHeaders) && item.headers && !hashRE.test(item.path)) {
 			const children = groupHeaders(item.headers);
 			return [link, renderChildren(h, children, item.path, $route, maxDepth)];
 		}

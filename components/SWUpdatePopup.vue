@@ -15,7 +15,7 @@ export default {
 	props: {
 		updateEvent: {
 			type: Object,
-			default: null,
+			'default': null,
 		},
 	},
 

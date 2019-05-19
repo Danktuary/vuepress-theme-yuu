@@ -74,8 +74,7 @@ export default {
 		const handleLinksWrapWidth = () => {
 			if (document.documentElement.clientWidth < MOBILE_DESKTOP_BREAKPOINT) {
 				this.linksWrapMaxWidth = null;
-			}
-			else {
+			} else {
 				const siteNameOffset = (this.$refs.siteName && this.$refs.siteName.offsetWidth) || 0;
 				this.linksWrapMaxWidth = this.$el.offsetWidth - NAVBAR_VERTICAL_PADDING - siteNameOffset;
 			}

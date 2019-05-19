@@ -45,8 +45,7 @@ function find(page, items, offset) {
 	items.forEach(item => {
 		if (item.type === 'group') {
 			res.push(...item.children || []);
-		}
-		else {
+		} else {
 			res.push(item);
 		}
 	});
@@ -70,9 +69,9 @@ function resolveNext(page, items) {
 export default {
 	name: 'Page',
 
-	props: ['sidebarItems'],
-
 	mixins: [yuuConfig, themeHandler],
+
+	props: ['sidebarItems'],
 
 	computed: {
 		lastUpdated() {
@@ -96,11 +95,9 @@ export default {
 
 			if (prev === false) {
 				// ...
-			}
-			else if (prev) {
+			} else if (prev) {
 				return resolvePage(this.$site.pages, prev, this.$route.path);
-			}
-			else {
+			} else {
 				return resolvePrev(this.$page, this.sidebarItems);
 			}
 		},
@@ -110,11 +107,9 @@ export default {
 
 			if (next === false) {
 				// ...
-			}
-			else if (next) {
+			} else if (next) {
 				return resolvePage(this.$site.pages, next, this.$route.path);
-			}
-			else {
+			} else {
 				return resolveNext(this.$page, this.sidebarItems);
 			}
 		},
