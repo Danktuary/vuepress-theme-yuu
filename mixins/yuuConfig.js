@@ -14,6 +14,7 @@ export default {
 			disableThemeIgnore: yuu.disableThemeIgnore || false,
 			extraOptions: yuu.extraOptions || {},
 			defaultDarkTheme: yuu.defaultDarkTheme || false,
+			defaultTheme: yuu.defaultTheme || 'green'
 		};
 
 		this.yuu.hasThemes = Array.isArray(this.yuu.themes) && this.yuu.themes.length > 0;
