@@ -13,6 +13,7 @@ export default {
 			disableDarkTheme: yuu.disableDarkTheme || false,
 			disableThemeIgnore: yuu.disableThemeIgnore || false,
 			extraOptions: yuu.extraOptions || {},
+			defaultDarkTheme: yuu.defaultDarkTheme || false,
 		};
 
 		this.yuu.hasThemes = Array.isArray(this.yuu.themes) && this.yuu.themes.length > 0;

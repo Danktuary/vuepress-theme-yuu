@@ -7,6 +7,10 @@ export default {
 	},
 
 	mounted() {
+		if(this.yuu.defaultDarkTheme !== false && !localStorage.getItem('dark-theme')) {
+			localStorage.setItem('dark-theme', true);
+		}
+
 		if (this.yuu.disableDarkTheme !== true) {
 			this.darkTheme = localStorage.getItem('dark-theme') === 'true';
 			this.toggleDarkTheme();
@@ -25,7 +29,7 @@ export default {
 			}
 
 			document.body.classList.remove('yuu-theme-dark');
-			localStorage.removeItem('dark-theme');
+			localStorage.setItem('dark-theme', false);
 		},
 
 		toggleForcedThemes() {
