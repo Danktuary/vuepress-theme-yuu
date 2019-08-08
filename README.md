@@ -39,6 +39,18 @@ module.exports = {
 };
 ```
 
+You can also change dark theme enabled by default via the `defaultDarkTheme` option.
+
+```js
+module.exports = {
+	themeConfig: {
+		yuu: {
+			defaultDarkTheme: true,
+		},
+	},
+};
+```
+
 ### Color themes
 
 Yuu currently supports 3 color themes: the default (green) theme, a blue theme, and a red theme. By default, any additional themes will be included. If you only want to use certain themes, you'll need to be explicit about which ones.
@@ -48,6 +60,18 @@ module.exports = {
 	themeConfig: {
 		yuu: {
 			colorThemes: ['red'],
+		},
+	},
+};
+```
+
+You can also change default color theme via the `defaultTheme` option, available values are `green`, `blue` and `red`.
+
+```js
+module.exports = {
+	themeConfig: {
+		yuu: {
+			defaultTheme: 'blue',
 		},
 	},
 };
