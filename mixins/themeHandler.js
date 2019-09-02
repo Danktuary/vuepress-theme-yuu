@@ -17,7 +17,7 @@ export default {
 			const themes = colorThemes.map(colorTheme => `yuu-theme-${colorTheme}`);
 
 			if (!theme) {
-				if (persist) localStorage.setItem('color-theme', '');
+				if (persist) localStorage.setItem('color-theme', 'green');
 				return classes.remove(...themes);
 			}
 
@@ -35,7 +35,7 @@ export default {
 		},
 
 		setPageTheme() {
-			if(this.yuu.defaultTheme !== 'green'  && localStorage.getItem('color-theme') != ''){
+			if(this.yuu.defaultTheme !== 'green'  && !localStorage.getItem('color-theme')){
 				localStorage.setItem('color-theme', this.yuu.defaultTheme);
 			}
 			const { forceTheme } = this.$page.frontmatter;
