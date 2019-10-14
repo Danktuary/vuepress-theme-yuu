@@ -19,11 +19,9 @@ import yuuConfig from '@theme/mixins/yuuConfig.js';
 
 export default {
 	name: 'UserSettings',
-
 	directives: {
 		'click-outside': ClickOutside,
 	},
-
 	components: {
 		CogIcon,
 		ThemeOptions,
