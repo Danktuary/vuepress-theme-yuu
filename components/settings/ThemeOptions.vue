@@ -32,7 +32,6 @@ import darkThemeHandler from '@theme/mixins/darkThemeHandler.js';
 
 export default {
 	name: 'ThemeOptions',
-
 	mixins: [yuuConfig, themeHandler, darkThemeHandler],
 };
 </script>

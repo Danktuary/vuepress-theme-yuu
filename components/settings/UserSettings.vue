@@ -27,22 +27,18 @@ export default {
 		CogIcon,
 		ThemeOptions,
 	},
-
 	mixins: [yuuConfig],
-
 	data() {
 		return {
 			showMenu: false,
 		};
 	},
-
 	computed: {
 		showSettings() {
 			const { yuu } = this;
 			return yuu.hasThemes || yuu.disableDarkTheme !== true || yuu.disableThemeIgnore !== true;
 		},
 	},
-
 	methods: {
 		hideMenu() {
 			this.showMenu = false;
