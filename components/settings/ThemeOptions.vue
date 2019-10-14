@@ -38,7 +38,7 @@ export default {
 </script>
 
 <style lang="stylus">
-@import '../../styles/config.styl';
+@import '../../styles/variables.styl';
 
 .color-theme-options {
 	display: flex;

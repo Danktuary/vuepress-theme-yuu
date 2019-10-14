@@ -52,7 +52,7 @@ export default {
 </script>
 
 <style lang="stylus">
-@import '../../styles/config.styl';
+@import '../../styles/variables.styl';
 
 .user-settings {
 	position: relative;
