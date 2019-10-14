@@ -1,6 +1,4 @@
-$tipGreen = #42b983;
-$warningYellow = #ffe564;
-$dangerRed = #c00;
+@import './variables.styl';
 
 .custom-block {
 	.custom-block-title {
@@ -44,7 +42,6 @@ $dangerRed = #c00;
 	}
 
 	&.danger {
-		// background-color: #ffe6e6;
 		background-color: lighten($dangerRed, 90%);
 		border-color: $dangerRed;
 		color: darken($dangerRed, 50%);
@@ -55,45 +52,6 @@ $dangerRed = #c00;
 
 		a {
 			color: lighten($dangerRed, 15%);
-		}
-	}
-}
-
-.yuu-theme-dark {
-	.custom-block {
-		&.tip {
-			color: lighten($tipGreen, 50%);
-			background-color: alpha($tipGreen, 0.25);
-
-			.custom-block-title {
-				color: lighten($tipGreen, 20%);
-			}
-		}
-
-		&.warning {
-			color: lighten($warningYellow, 40%);
-			background-color: alpha($warningYellow, 0.25);
-
-			.custom-block-title {
-				color: darken($warningYellow, 20%);
-			}
-
-			a {
-				color: darken($warningYellow, 10%);
-			}
-		}
-
-		&.danger {
-			color: lighten($dangerRed, 50%);
-			background-color: alpha($dangerRed, 0.25);
-
-			.custom-block-title {
-				color: lighten($dangerRed, 30%);
-			}
-
-			a {
-				color: lighten($dangerRed, 20%);
-			}
 		}
 	}
 }
