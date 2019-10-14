@@ -12,6 +12,7 @@
 </template>
 
 <script>
+import ClickOutside from 'vue-click-outside';
 import ThemeOptions from '@theme/components/settings/ThemeOptions.vue';
 import CogIcon from '@theme/components/settings/CogIcon.vue';
 import yuuConfig from '@theme/mixins/yuuConfig.js';
