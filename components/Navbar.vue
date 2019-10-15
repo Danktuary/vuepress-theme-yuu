@@ -16,7 +16,13 @@
 			>{{ $siteTitle }}</span>
 		</router-link>
 		<div class="links" :style="linksWrapMaxWidth ? { 'max-width': linksWrapMaxWidth + 'px' } : {}">
+			<div v-if="yuu.extraOptions && yuu.extraOptions.before" class="user-options-before">
+				<component :is="yuu.extraOptions.before" />
+			</div>
 			<UserSettings />
+			<div v-if="yuu.extraOptions && yuu.extraOptions.after" class="user-options-after">
+				<component :is="yuu.extraOptions.after" />
+			</div>
 			<AlgoliaSearchBox v-if="isAlgoliaSearch" :options="algolia" />
 			<SearchBox v-else-if="$site.themeConfig.search !== false && $page.frontmatter.search !== false" />
 			<NavLinks class="can-hide" />
@@ -30,6 +36,7 @@ import SearchBox from '@SearchBox';
 import SidebarButton from '@parent-theme/components/SidebarButton.vue';
 import NavLinks from '@parent-theme/components/NavLinks.vue';
 import UserSettings from '@theme/components/settings/UserSettings.vue';
+import yuuConfig from '@theme/mixins/yuuConfig.js';
 
 function css(el, property) {
 	// NOTE: Known bug, will return 'auto' if style value is 'auto'
@@ -40,6 +47,7 @@ function css(el, property) {
 
 export default {
 	components: { SidebarButton, NavLinks, SearchBox, AlgoliaSearchBox, UserSettings },
+	mixins: [yuuConfig],
 	data() {
 		return {
 			linksWrapMaxWidth: null,

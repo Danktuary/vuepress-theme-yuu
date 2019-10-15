@@ -79,13 +79,15 @@ module.exports = {
 
 ### Extra options
 
-If you want to add your own options to the dropdown menu, you can do so via the `extraOptions` setting. The strings provided are the names of the components to use (most likely located in your `/docs/.vuepress/components/` directory).
+If you want to add your own options to or around the dropdown menu, you can do so via the `extraOptions` setting. The strings provided are the names of the components to use (most likely located in your `/docs/.vuepress/components/` directory).
 
 ```js
 module.exports = {
 	themeConfig: {
 		yuu: {
 			extraOptions: {
+				before: 'BeforeContent',
+				after: 'AfterContent',
 				above: 'AboveContent',
 				below: 'BelowContent',
 			},
@@ -93,3 +95,5 @@ module.exports = {
 	},
 };
 ```
+
+`before` and `after` will be placed before or after the cog icon, and `above` and `below` will be placed inside the dropdown menu, above or below the default Yuu options. You can target these elements in your CSS with the selectors `.user-options-before`, `.user-options-after`, `.user-options-above`, and `.user-options-below`.
