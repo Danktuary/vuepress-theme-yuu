@@ -17,7 +17,7 @@ yarn add vuepress-theme-yuu
 
 ## Features/configuration
 
-![Yuu user settings dropdown menu](https://i.imgur.com/bqKYL5y.png)
+![Yuu user settings dropdown menu](https://i.imgur.com/NsJ0evR.png)
 
 Below is a list of the additional configurable features Yuu has to offer.
 
