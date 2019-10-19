@@ -63,6 +63,10 @@ export default {
 			&.red-theme {
 				background-color: $redAccentColor;
 			}
+
+			&.purple-theme {
+				background-color: $purpleAccentColor;
+			}
 		}
 	}
 }

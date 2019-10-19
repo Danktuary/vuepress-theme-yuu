@@ -21,3 +21,4 @@ export default {
 <style src="../styles/themes/dark.styl" lang="stylus"></style>
 <style src="../styles/themes/blue.styl" lang="stylus"></style>
 <style src="../styles/themes/red.styl" lang="stylus"></style>
+<style src="../styles/themes/purple.styl" lang="stylus"></style>

@@ -9,7 +9,7 @@ export default {
 		const { yuu = {} } = this.$site.themeConfig;
 
 		this.yuu = {
-			themes: yuu.colorThemes || ['blue', 'red'],
+			themes: yuu.colorThemes || ['blue', 'red', 'purple'],
 			disableDarkTheme: yuu.disableDarkTheme || false,
 			disableThemeIgnore: yuu.disableThemeIgnore || false,
 			extraOptions: yuu.extraOptions || {},
