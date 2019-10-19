@@ -4,7 +4,7 @@
 
 # Yuu
 
-A VuePress theme that supports multiple color themes and some other useful features. Extended upon the default VuePress theme with some adjustments.
+A VuePress theme that supports a dark theme, multiple color themes, and other useful features. Extended upon the default VuePress theme with some adjustments.
 
 ## Installation
 
