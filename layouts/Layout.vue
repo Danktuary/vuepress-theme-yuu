@@ -12,6 +12,11 @@ export default {
 		ParentLayout,
 	},
 	mixins: [yuuConfig, themeHandler],
+	watch: {
+		'$page.frontmatter.home'(isHome) {
+			if (isHome) this.setPageTheme();
+		},
+	},
 };
 </script>
 
