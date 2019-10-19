@@ -141,31 +141,37 @@
 	}
 
 	// @parent-theme/components/NavLinks.vue
-	@media (min-width: $MQMobile) {
-		.nav-links a {
+	.nav-links {
+		a,
+		.dropdown-wrapper .dropdown-title {
 			color: $darkTextColor;
 
 			&:hover,
 			&.router-link-active {
-				color: $darkTextColor;
+				color: $accentColor;
 			}
 		}
 
-		.yuu-theme-blue {
-			.nav-item > a:not(.external) {
-				&:hover,
-				&.router-link-active {
-					border-bottom-color: $blueAccentColor;
-				}
+		.dropdown-wrapper .nav-dropdown {
+			background-color: $darkPrimaryBg;
+			border-color: $darkBorderColor;
+		}
+	}
+
+	.yuu-theme-blue {
+		.nav-item > a:not(.external) {
+			&:hover,
+			&.router-link-active {
+				border-bottom-color: $blueAccentColor;
 			}
 		}
+	}
 
-		.yuu-theme-red {
-			.nav-item > a:not(.external) {
-				&:hover,
-				&.router-link-active {
-					border-bottom-color: $redAccentColor;
-				}
+	.yuu-theme-red {
+		.nav-item > a:not(.external) {
+			&:hover,
+			&.router-link-active {
+				border-bottom-color: $redAccentColor;
 			}
 		}
 	}

@@ -40,12 +40,20 @@
 	}
 
 	// @parent-theme/components/NavLinks.vue
-	.nav-links a {
-		color: inherit;
+	.nav-links {
+		a,
+		.dropdown-wrapper .dropdown-title,
+		.dropdown-wrapper .nav-dropdown .dropdown-item a {
+			color: inherit;
 
-		&:hover,
-		&.router-link-active {
-			color: $redAccentColor;
+			&:hover,
+			&.router-link-active {
+				color: $redAccentColor;
+			}
+		}
+
+		.dropdown-wrapper .nav-dropdown .dropdown-item a.router-link-active::after {
+			border-left-color: $redAccentColor;
 		}
 	}
 
