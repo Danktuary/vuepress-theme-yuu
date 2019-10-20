@@ -15,6 +15,14 @@ yarn add vuepress-theme-yuu
 # or npm install vuepress-theme-yuu
 ```
 
+And then setting it in your `docs/.vuepress/config.js` file:
+
+```js
+module.exports = {
+	theme: 'yuu',
+};
+```
+
 ## Features/configuration
 
 ![Yuu user settings dropdown menu](https://i.imgur.com/NsJ0evR.png)
