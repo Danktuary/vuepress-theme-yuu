@@ -33,9 +33,7 @@ export default {
 			classes.remove(...themes.filter(t => t !== `yuu-theme-${theme}`));
 			classes.add(`yuu-theme-${theme}`);
 
-			if (persist) {
-				localStorage.setItem('color-theme', theme);
-			}
+			if (persist) localStorage.setItem('color-theme', theme);
 		},
 
 		setPageTheme() {
