@@ -23,7 +23,21 @@ Below is a list of the additional configurable features Yuu has to offer.
 
 ### Dark theme
 
-Yuu, by default, comes with an option to allow users to switch to a dark theme. You can disable this via the `disableDarkTheme` option.
+Yuu, by default, comes with an option to allow users to switch to a dark theme. You can set this as the default theme via the `defaultDarkTheme` option.
+
+```js
+module.exports = {
+	themeConfig: {
+		yuu: {
+			defaultDarkTheme: true,
+		},
+	},
+};
+```
+
+#### Disabling the dark theme
+
+You can also disable it entirely via the `disableDarkTheme` option.
 
 ```js
 module.exports = {

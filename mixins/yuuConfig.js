@@ -10,6 +10,7 @@ export default {
 
 		this.yuu = {
 			themes: yuu.colorThemes || ['blue', 'red', 'purple'],
+			defaultDarkTheme: yuu.defaultDarkTheme || false,
 			disableDarkTheme: yuu.disableDarkTheme || false,
 			disableThemeIgnore: yuu.disableThemeIgnore || false,
 			extraOptions: yuu.extraOptions || {},
