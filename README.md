@@ -63,6 +63,20 @@ module.exports = {
 };
 ```
 
+#### Default color theme
+
+You can also set the default color theme via the `defaultColorTheme` option.
+
+```js
+module.exports = {
+	themeConfig: {
+		yuu: {
+			defaultColorTheme: 'blue',
+		},
+	},
+};
+```
+
 #### Forced color themes per page
 
 You can force themes on a per page basis as well. Using YAML front matter on the page(s) you want to display a specific theme:
