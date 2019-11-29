@@ -11,5 +11,11 @@ module.exports = {
 		editLinks: true,
 		sidebarDepth: 3,
 		lastUpdated: true,
+		nav: [
+			{
+				text: 'Home',
+				link: '/',
+			},
+		],
 	},
 };
