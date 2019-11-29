@@ -2,5 +2,13 @@
   "private": true,
   "repository": "https://github.com/Danktuary/vuepress-theme-yuu.git",
   "author": "Sanctuary <sanc.pw@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "serve": "vuepress dev .",
+    "build": "vuepress build ."
+  },
+  "devDependencies": {
+    "vuepress": "^1.2.0",
+    "vuepress-theme-yuu": "^2.2.0"
+  }
 }
