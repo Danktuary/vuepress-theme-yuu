@@ -16,6 +16,14 @@ module.exports = {
 				text: 'Home',
 				link: '/',
 			},
+			{
+				text: 'Theme Configuration',
+				link: '/theme-configuration',
+			},
+			{
+				text: 'Default Theme Config',
+				link: 'https://vuepress.vuejs.org/theme/default-theme-config.html',
+			},
 		],
 	},
 };
