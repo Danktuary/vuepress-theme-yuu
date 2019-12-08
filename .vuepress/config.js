@@ -1,6 +1,7 @@
-module.exports = {
+const config = {
 	title: 'Vuepress Theme Yuu',
 	description: 'A VuePress theme that supports a dark theme, multiple color themes, and other useful features.',
+	plugins: [],
 	theme: 'yuu',
 	themeConfig: {
 		yuu: {
@@ -27,3 +28,9 @@ module.exports = {
 		],
 	},
 };
+
+if (process.env.NODE_ENV === 'production') {
+	config.plugins.push(['@vuepress/google-analytics', { ga: 'UA-108513187-2' }]);
+}
+
+module.exports = config;
