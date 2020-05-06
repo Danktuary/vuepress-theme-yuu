@@ -108,3 +108,33 @@ module.exports = {
 ```
 
 `before` and `after` will be placed before or after the cog icon, and `above` and `below` will be placed inside the dropdown menu, above or below the default Yuu options. You can target these elements in your CSS with the selectors `.user-options-before`, `.user-options-after`, `.user-options-above`, and `.user-options-below`.
+
+## Custom home layout
+
+If you want to use your own home component when using the [homepage frontmatter option](https://vuepress.vuejs.org/theme/default-theme-config.html#homepage), you can use the `homeComponent` setting.
+
+```md
+<!-- docs/README.md -->
+---
+home: true
+homeComponent: CustomHome
+---
+```
+
+```vue
+<!-- docs/.vuepress/components/CustomHome.vue -->
+<template>
+	<div class="homepage">
+		Custom homepage
+	</div>
+</template>
+
+<style lang="stylus">
+// These variables are available from the default theme
+.homepage
+	display: block
+	max-width: $homePageWidth
+	margin: 0 auto
+	padding: $navbarHeight 2rem 0
+</style>
+```
