@@ -15,6 +15,8 @@ export default {
 			disableDarkTheme: yuu.disableDarkTheme || false,
 			disableThemeIgnore: yuu.disableThemeIgnore || false,
 			extraOptions: yuu.extraOptions || {},
+			optionLabelDarkTheme: yuu.optionLabelDarkTheme || "Enable Dark Theme?",
+			optionLabelIgnore: yuu.optionLabelIgnore || "Ignore Forced Themes?",
 		};
 
 		this.yuu.hasThemes = Array.isArray(this.yuu.themes) && this.yuu.themes.length > 0;
