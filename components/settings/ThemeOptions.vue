@@ -12,11 +12,11 @@
 			</li>
 		</ul>
 		<div v-if="!yuu.disableDarkTheme" class="dark-theme-options toggle-option">
-			<label for="dark-theme-toggle">{{ yuu.optionLabelDarkTheme }}</label>
+			<label for="dark-theme-toggle">{{ yuu.labels.darkTheme }}</label>
 			<input id="dark-theme-toggle" v-model="darkTheme" type="checkbox" @change="toggleDarkTheme" />
 		</div>
 		<div v-if="yuu.hasThemes && !yuu.disableThemeIgnore" class="force-theme-options toggle-option">
-			<label for="force-theme-toggle">{{ yuu.optionLabelIgnore }}</label>
+			<label for="force-theme-toggle">{{ yuu.labels.forcedThemes }}</label>
 			<input id="force-theme-toggle" v-model="ignoreForcedThemes" type="checkbox" @change="toggleForcedThemes" />
 		</div>
 		<div v-if="yuu.extraOptions && yuu.extraOptions.below" class="user-options-below">
