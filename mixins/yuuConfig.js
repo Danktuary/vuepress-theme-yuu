@@ -5,8 +5,9 @@ export default {
 		};
 	},
 
-	mounted() {
+	beforeMount() {
 		const { yuu = {} } = this.$site.themeConfig;
+		const { labels = {} } = yuu;
 
 		this.yuu = {
 			themes: yuu.colorThemes || ['blue', 'red', 'purple'],
@@ -15,9 +16,9 @@ export default {
 			disableDarkTheme: yuu.disableDarkTheme || false,
 			disableThemeIgnore: yuu.disableThemeIgnore || false,
 			extraOptions: yuu.extraOptions || {},
-			labels: yuu.labels || {
-				darkTheme: "Enable Dark Theme?",
-				forcedThemes: "Ignore Forced Themes?",
+			labels: {
+				darkTheme: labels.darkTheme || "Enable Dark Theme?",
+				forcedThemes: labels.forcedThemes || "Ignore Forced Themes?",
 			},
 		};
 
