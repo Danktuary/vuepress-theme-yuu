@@ -4,7 +4,6 @@ export default {
 			yuu: {},
 		};
 	},
-
 	beforeMount() {
 		const { yuu = {} } = this.$site.themeConfig;
 		const { labels = {} } = yuu;

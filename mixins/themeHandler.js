@@ -6,11 +6,9 @@ export default {
 
 		this.setPageTheme();
 	},
-
 	beforeUpdate() {
 		this.setPageTheme();
 	},
-
 	methods: {
 		setTheme(theme, persist = true) {
 			const colorThemes = this.yuu.themes || {};
@@ -35,7 +33,6 @@ export default {
 
 			if (persist) localStorage.setItem('color-theme', theme);
 		},
-
 		setPageTheme() {
 			const { forceTheme } = this.$page.frontmatter;
 			const colorTheme = localStorage.getItem('color-theme');

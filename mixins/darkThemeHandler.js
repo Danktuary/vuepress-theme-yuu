@@ -5,7 +5,6 @@ export default {
 			ignoreForcedThemes: false,
 		};
 	},
-
 	mounted() {
 		if (this.yuu.disableDarkTheme !== true) {
 			if (this.yuu.defaultDarkTheme === true && !localStorage.getItem('dark-theme')) {
@@ -20,7 +19,6 @@ export default {
 			this.ignoreForcedThemes = localStorage.getItem('ignore-forced-themes') === 'true';
 		}
 	},
-
 	methods: {
 		toggleDarkTheme() {
 			if (this.darkTheme) {
@@ -31,7 +29,6 @@ export default {
 			document.body.classList.remove('yuu-theme-dark');
 			localStorage.setItem('dark-theme', false);
 		},
-
 		toggleForcedThemes() {
 			if (this.ignoreForcedThemes) {
 				this.setTheme(localStorage.getItem('color-theme'));
