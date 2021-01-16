@@ -1,7 +1,16 @@
 export default {
+	data() {
+		return {
+			ignoreForcedThemes: false,
+		}
+	},
 	mounted() {
 		if (this.yuu.defaultColorTheme !== 'default' && !localStorage.getItem('color-theme')) {
 			localStorage.setItem('color-theme', this.yuu.defaultColorTheme)
+		}
+
+		if (this.yuu.disableThemeIgnore !== true) {
+			this.ignoreForcedThemes = localStorage.getItem('ignore-forced-themes') === 'true'
 		}
 
 		this.setPageTheme()
@@ -40,6 +49,14 @@ export default {
 			const theme = this.yuu.disableThemeIgnore !== true && ignoreForcedThemes ? colorTheme : forceTheme || colorTheme
 
 			this.setTheme(theme, false)
+		},
+		toggleForcedThemes() {
+			if (this.ignoreForcedThemes) {
+				this.setTheme(localStorage.getItem('color-theme'))
+				return localStorage.setItem('ignore-forced-themes', true)
+			}
+
+			localStorage.removeItem('ignore-forced-themes')
 		},
 	},
 }
