@@ -16,12 +16,12 @@
 			>{{ $siteTitle }}</span>
 		</router-link>
 		<div class="links" :style="linksWrapMaxWidth ? { 'max-width': linksWrapMaxWidth + 'px' } : {}">
-			<div v-if="yuu.extraOptions && yuu.extraOptions.before" class="user-options-before">
-				<component :is="yuu.extraOptions.before" />
+			<div v-if="yuuConfig.extraOptions && yuuConfig.extraOptions.before" class="user-options-before">
+				<component :is="yuuConfig.extraOptions.before" />
 			</div>
 			<UserSettings />
-			<div v-if="yuu.extraOptions && yuu.extraOptions.after" class="user-options-after">
-				<component :is="yuu.extraOptions.after" />
+			<div v-if="yuuConfig.extraOptions && yuuConfig.extraOptions.after" class="user-options-after">
+				<component :is="yuuConfig.extraOptions.after" />
 			</div>
 			<AlgoliaSearchBox v-if="isAlgoliaSearch" :options="algolia" />
 			<SearchBox v-else-if="$site.themeConfig.search !== false && $page.frontmatter.search !== false" />

@@ -5,8 +5,8 @@ export default {
 		}
 	},
 	mounted() {
-		if (this.yuu.disableDarkTheme !== true) {
-			if (this.yuu.defaultDarkTheme === true && !localStorage.getItem('dark-theme')) {
+		if (this.yuuConfig.disableDarkTheme !== true) {
+			if (this.yuuConfig.defaultDarkTheme === true && !localStorage.getItem('dark-theme')) {
 				localStorage.setItem('dark-theme', true)
 			}
 

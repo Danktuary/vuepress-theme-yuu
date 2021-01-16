@@ -5,11 +5,11 @@ export default {
 		}
 	},
 	mounted() {
-		if (this.yuu.defaultColorTheme !== 'default' && !localStorage.getItem('color-theme')) {
-			localStorage.setItem('color-theme', this.yuu.defaultColorTheme)
+		if (this.yuuConfig.defaultColorTheme !== 'default' && !localStorage.getItem('color-theme')) {
+			localStorage.setItem('color-theme', this.yuuConfig.defaultColorTheme)
 		}
 
-		if (this.yuu.disableThemeIgnore !== true) {
+		if (this.yuuConfig.disableThemeIgnore !== true) {
 			this.ignoreForcedThemes = localStorage.getItem('ignore-forced-themes') === 'true'
 		}
 
@@ -20,7 +20,7 @@ export default {
 	},
 	methods: {
 		setTheme(theme, persist = true) {
-			const colorThemes = this.yuu.themes || {}
+			const colorThemes = this.yuuConfig.themes || {}
 
 			if (!Array.isArray(colorThemes) || !colorThemes.length) return
 
@@ -46,7 +46,7 @@ export default {
 			const { forceTheme } = this.$page.frontmatter
 			const colorTheme = localStorage.getItem('color-theme')
 			const ignoreForcedThemes = localStorage.getItem('ignore-forced-themes') === 'true'
-			const theme = this.yuu.disableThemeIgnore !== true && ignoreForcedThemes ? colorTheme : forceTheme || colorTheme
+			const theme = this.yuuConfig.disableThemeIgnore !== true && ignoreForcedThemes ? colorTheme : forceTheme || colorTheme
 
 			this.setTheme(theme, false)
 		},
