@@ -7,7 +7,7 @@ import ParentHome from '@parent-theme/components/Home.vue'
 
 export default {
 	components: {
-		ParentHome,
+		ParentHome, // eslint-disable-line vue/no-unused-components
 	},
 }
 </script>

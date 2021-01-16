@@ -26,14 +26,14 @@
 </template>
 
 <script>
-import yuuConfig from '@theme/mixins/yuuConfig.js';
-import themeHandler from '@theme/mixins/themeHandler.js';
-import darkThemeHandler from '@theme/mixins/darkThemeHandler.js';
+import yuuConfig from '@theme/mixins/yuuConfig.js'
+import themeHandler from '@theme/mixins/themeHandler.js'
+import darkThemeHandler from '@theme/mixins/darkThemeHandler.js'
 
 export default {
 	name: 'ThemeOptions',
 	mixins: [yuuConfig, themeHandler, darkThemeHandler],
-};
+}
 </script>
 
 <style lang="stylus">

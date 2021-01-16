@@ -3,9 +3,9 @@
 </template>
 
 <script>
-import ParentLayout from '@parent-theme/layouts/Layout.vue';
-import yuuConfig from '@theme/mixins/yuuConfig.js';
-import themeHandler from '@theme/mixins/themeHandler.js';
+import ParentLayout from '@parent-theme/layouts/Layout.vue'
+import yuuConfig from '@theme/mixins/yuuConfig.js'
+import themeHandler from '@theme/mixins/themeHandler.js'
 
 export default {
 	components: {
@@ -14,10 +14,10 @@ export default {
 	mixins: [yuuConfig, themeHandler],
 	watch: {
 		'$page.frontmatter.home'(isHome) {
-			if (isHome) this.setPageTheme();
+			if (isHome) this.setPageTheme()
 		},
 	},
-};
+}
 </script>
 
 <style src="../styles/variables.styl" lang="stylus"></style>

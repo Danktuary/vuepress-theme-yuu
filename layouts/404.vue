@@ -3,17 +3,17 @@
 </template>
 
 <script>
-import ParentLayout from '@parent-theme/layouts/404.vue';
-import yuuConfig from '@theme/mixins/yuuConfig.js';
-import themeHandler from '@theme/mixins/themeHandler.js';
-import darkThemeHandler from '@theme/mixins/darkThemeHandler.js';
+import ParentLayout from '@parent-theme/layouts/404.vue'
+import yuuConfig from '@theme/mixins/yuuConfig.js'
+import themeHandler from '@theme/mixins/themeHandler.js'
+import darkThemeHandler from '@theme/mixins/darkThemeHandler.js'
 
 export default {
 	components: {
 		ParentLayout,
 	},
 	mixins: [yuuConfig, themeHandler, darkThemeHandler],
-};
+}
 </script>
 
 <style src="../styles/variables.styl" lang="stylus"></style>

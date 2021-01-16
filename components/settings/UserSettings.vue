@@ -12,10 +12,10 @@
 </template>
 
 <script>
-import ClickOutside from 'vue-click-outside';
-import ThemeOptions from '@theme/components/settings/ThemeOptions.vue';
-import CogIcon from '@theme/components/settings/CogIcon.vue';
-import yuuConfig from '@theme/mixins/yuuConfig.js';
+import ClickOutside from 'vue-click-outside'
+import ThemeOptions from '@theme/components/settings/ThemeOptions.vue'
+import CogIcon from '@theme/components/settings/CogIcon.vue'
+import yuuConfig from '@theme/mixins/yuuConfig.js'
 
 export default {
 	name: 'UserSettings',
@@ -30,20 +30,20 @@ export default {
 	data() {
 		return {
 			showMenu: false,
-		};
+		}
 	},
 	computed: {
 		showSettings() {
-			const { yuu } = this;
-			return yuu.hasThemes || yuu.disableDarkTheme !== true || yuu.disableThemeIgnore !== true;
+			const { yuu } = this
+			return yuu.hasThemes || yuu.disableDarkTheme !== true || yuu.disableThemeIgnore !== true
 		},
 	},
 	methods: {
 		hideMenu() {
-			this.showMenu = false;
+			this.showMenu = false
 		},
 	},
-};
+}
 </script>
 
 <style lang="stylus">
