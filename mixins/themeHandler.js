@@ -1,17 +1,19 @@
 export default {
 	data() {
 		return {
+			colorTheme: 'default',
 			ignoreForcedThemes: false,
 		}
 	},
 	mounted() {
-		if (this.yuuConfig.defaultColorTheme !== 'default' && !localStorage.getItem('color-theme')) {
-			localStorage.setItem('color-theme', this.yuuConfig.defaultColorTheme)
+		const { yuuConfig } = this
+
+		if (yuuConfig.defaultColorTheme !== 'default' && !localStorage.getItem('color-theme')) {
+			this.colorTheme = yuuConfig.defaultColorTheme
+			localStorage.setItem('color-theme', yuuConfig.defaultColorTheme)
 		}
 
-		if (this.yuuConfig.disableThemeIgnore !== true) {
-			this.ignoreForcedThemes = localStorage.getItem('ignore-forced-themes') === 'true'
-		}
+		this.ignoreForcedThemes = yuuConfig.disableThemeIgnore || localStorage.getItem('ignore-forced-themes') === 'true'
 
 		this.setPageTheme()
 	},
@@ -19,40 +21,33 @@ export default {
 		this.setPageTheme()
 	},
 	methods: {
-		setTheme(theme, persist = true) {
-			const colorThemes = this.yuuConfig.themes || {}
+		setTheme(colorTheme = 'default', persist = true) {
+			const { themes } = this.yuuConfig
+			const { classList } = document.body
+			const themesClasses = themes.map(theme => `yuu-theme-${theme}`)
 
-			if (!Array.isArray(colorThemes) || !colorThemes.length) return
-
-			const classes = document.body.classList
-			const themes = colorThemes.map(colorTheme => `yuu-theme-${colorTheme}`)
-
-			if (!theme) {
-				if (persist) localStorage.setItem('color-theme', 'default')
-				return classes.remove(...themes)
-			}
-
-			if (theme && !colorThemes.includes(theme)) {
+			if (colorTheme !== 'default' && !themes.includes(colorTheme)) {
 				const oldTheme = localStorage.getItem('color-theme')
-				return this.setTheme(colorThemes.includes(oldTheme) ? oldTheme : null)
+				colorTheme = themes.includes(oldTheme) ? oldTheme : 'default'
 			}
 
-			classes.remove(...themes.filter(t => t !== `yuu-theme-${theme}`))
-			classes.add(`yuu-theme-${theme}`)
+			this.colorTheme = colorTheme
+			if (persist) localStorage.setItem('color-theme', colorTheme)
 
-			if (persist) localStorage.setItem('color-theme', theme)
+			if (colorTheme === 'default') return classList.remove(...themesClasses)
+			classList.remove(...themesClasses.filter(themeClass => themeClass !== `yuu-theme-${colorTheme}`))
+			classList.add(`yuu-theme-${colorTheme}`)
 		},
 		setPageTheme() {
+			const { colorTheme, ignoreForcedThemes } = this
 			const { forceTheme } = this.$page.frontmatter
-			const colorTheme = localStorage.getItem('color-theme')
-			const ignoreForcedThemes = localStorage.getItem('ignore-forced-themes') === 'true'
-			const theme = this.yuuConfig.disableThemeIgnore !== true && ignoreForcedThemes ? colorTheme : forceTheme || colorTheme
+			const theme = ignoreForcedThemes ? colorTheme : forceTheme || colorTheme
 
 			this.setTheme(theme, false)
 		},
 		toggleForcedThemes() {
 			if (this.ignoreForcedThemes) {
-				this.setTheme(localStorage.getItem('color-theme'))
+				this.setPageTheme()
 				return localStorage.setItem('ignore-forced-themes', true)
 			}
 
