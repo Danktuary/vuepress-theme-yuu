@@ -1,9 +1,9 @@
 <template>
 	<main class="page">
 		<slot name="top"></slot>
-		<Content class="theme-default-content"></Content>
-		<PageEdit />
-		<PageNav v-bind="{ sidebarItems }" />
+		<Content class="theme-default-content" />
+		<page-edit />
+		<page-nav v-bind="{ sidebarItems }" />
 		<slot name="bottom"></slot>
 	</main>
 </template>

@@ -1,6 +1,6 @@
 <template>
 	<header class="navbar">
-		<SidebarButton @toggle-sidebar="$emit('toggle-sidebar')" />
+		<sidebar-button @toggle-sidebar="$emit('toggle-sidebar')" />
 		<router-link :to="$localePath" class="home-link">
 			<img
 				v-if="$site.themeConfig.logo"
@@ -19,13 +19,13 @@
 			<div v-if="yuuConfig.extraOptions && yuuConfig.extraOptions.before" class="user-options-before">
 				<component :is="yuuConfig.extraOptions.before" />
 			</div>
-			<UserSettings />
+			<user-settings />
 			<div v-if="yuuConfig.extraOptions && yuuConfig.extraOptions.after" class="user-options-after">
 				<component :is="yuuConfig.extraOptions.after" />
 			</div>
-			<AlgoliaSearchBox v-if="isAlgoliaSearch" :options="algolia" />
-			<SearchBox v-else-if="$site.themeConfig.search !== false && $page.frontmatter.search !== false" />
-			<NavLinks class="can-hide" />
+			<algolia-search-box v-if="isAlgoliaSearch" :options="algolia" />
+			<search-box v-else-if="$site.themeConfig.search !== false && $page.frontmatter.search !== false" />
+			<nav-links class="can-hide" />
 		</div>
 	</header>
 </template>
