@@ -11,13 +11,20 @@
 <script>
 import PageEdit from '@parent-theme/components/PageEdit.vue'
 import PageNav from '@parent-theme/components/PageNav.vue'
-import yuuConfig from '@theme/mixins/yuuConfig.js'
 import themeHandler from '@theme/mixins/themeHandler.js'
 
 export default {
 	components: { PageEdit, PageNav },
-	mixins: [yuuConfig, themeHandler],
+	mixins: [themeHandler],
 	props: ['sidebarItems'],
+	watch: {
+		'$route.path'(to, from) {
+			if (to !== from) this.setPageTheme()
+		},
+	},
+	beforeDestroy() {
+		this.setPageTheme()
+	},
 }
 </script>
 

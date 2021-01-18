@@ -36,7 +36,6 @@ import SearchBox from '@SearchBox'
 import SidebarButton from '@parent-theme/components/SidebarButton.vue'
 import NavLinks from '@parent-theme/components/NavLinks.vue'
 import UserSettings from '@theme/components/settings/UserSettings.vue'
-import yuuConfig from '@theme/mixins/yuuConfig.js'
 
 function css(el, property) {
 	// NOTE: Known bug, will return 'auto' if style value is 'auto'
@@ -47,7 +46,6 @@ function css(el, property) {
 
 export default {
 	components: { SidebarButton, NavLinks, SearchBox, AlgoliaSearchBox, UserSettings },
-	mixins: [yuuConfig],
 	data() {
 		return {
 			linksWrapMaxWidth: null,
@@ -59,6 +57,9 @@ export default {
 		},
 		isAlgoliaSearch() {
 			return this.algolia && this.algolia.apiKey && this.algolia.indexName
+		},
+		yuuConfig() {
+			return this.$site.themeConfig.yuu
 		},
 	},
 	mounted() {

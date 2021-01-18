@@ -4,15 +4,17 @@
 
 <script>
 import ParentLayout from '@parent-theme/layouts/404.vue'
-import yuuConfig from '@theme/mixins/yuuConfig.js'
 import themeHandler from '@theme/mixins/themeHandler.js'
-import darkThemeHandler from '@theme/mixins/darkThemeHandler.js'
 
 export default {
 	components: {
 		ParentLayout,
 	},
-	mixins: [yuuConfig, themeHandler, darkThemeHandler],
+	mixins: [themeHandler],
+	created() {
+		if (this.$root.$yuu.darkTheme) this.setDarkTheme()
+		this.setPageTheme()
+	},
 }
 </script>
 

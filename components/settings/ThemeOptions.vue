@@ -5,19 +5,19 @@
 		</div>
 		<ul v-if="yuuConfig.hasThemes" class="color-theme-options">
 			<li>
-				<a href="#" class="default-theme" @click.prevent="setTheme()"></a>
+				<a href="#" class="default-theme" @click.prevent="setTheme({ persist: true })"></a>
 			</li>
-			<li v-for="color in yuuConfig.themes" :key="color">
-				<a href="#" :class="`${color}-theme`" @click.prevent="setTheme(color)"></a>
+			<li v-for="colorTheme in yuuConfig.themes" :key="colorTheme">
+				<a href="#" :class="`${colorTheme}-theme`" @click.prevent="setTheme({ colorTheme, persist: true })"></a>
 			</li>
 		</ul>
-		<div v-if="!yuuConfig.disableDarkTheme" class="dark-theme-options toggle-option">
+		<div v-if="yuuConfig.disableDarkTheme !== true" class="dark-theme-options toggle-option">
 			<label for="dark-theme-toggle">{{ yuuConfig.labels.darkTheme }}</label>
-			<input id="dark-theme-toggle" v-model="darkTheme" type="checkbox" @change="toggleDarkTheme" />
+			<input id="dark-theme-toggle" v-model="$root.$yuu.darkTheme" type="checkbox" @change="setDarkTheme" />
 		</div>
-		<div v-if="yuuConfig.hasThemes && !yuuConfig.disableThemeIgnore" class="force-theme-options toggle-option">
-			<label for="force-theme-toggle">{{ yuuConfig.labels.forcedThemes }}</label>
-			<input id="force-theme-toggle" v-model="ignoreForcedThemes" type="checkbox" @change="toggleForcedThemes" />
+		<div v-if="yuuConfig.hasThemes && yuuConfig.disableThemeIgnore !== true" class="ignore-themes-options toggle-option">
+			<label for="ignore-themes-toggle">{{ yuuConfig.labels.ignoreThemes }}</label>
+			<input id="ignore-themes-toggle" v-model="$root.$yuu.ignoreThemes" type="checkbox" @change="setIgnoreThemes" />
 		</div>
 		<div v-if="yuuConfig.extraOptions && yuuConfig.extraOptions.below" class="user-options-below">
 			<component :is="yuuConfig.extraOptions.below" />
@@ -26,13 +26,16 @@
 </template>
 
 <script>
-import yuuConfig from '@theme/mixins/yuuConfig.js'
 import themeHandler from '@theme/mixins/themeHandler.js'
-import darkThemeHandler from '@theme/mixins/darkThemeHandler.js'
 
 export default {
 	name: 'ThemeOptions',
-	mixins: [yuuConfig, themeHandler, darkThemeHandler],
+	mixins: [themeHandler],
+	computed: {
+		yuuConfig() {
+			return this.$site.themeConfig.yuu
+		},
+	},
 }
 </script>
 
