@@ -11,18 +11,19 @@ export default {
 			}
 
 			if (persist) {
-				this.$root.$yuu.colorTheme = colorTheme
+				this.$root.$yuu.userTheme = colorTheme
 				localStorage.setItem('color-theme', colorTheme)
 			}
 
+			this.$root.$yuu.colorTheme = colorTheme
 			if (colorTheme === 'default') return classList.remove(...themesClasses)
 			classList.remove(...themesClasses.filter(themeClass => themeClass !== `yuu-theme-${colorTheme}`))
 			classList.add(`yuu-theme-${colorTheme}`)
 		},
 		setPageTheme() {
-			const { colorTheme, ignoreThemes } = this.$root.$yuu
+			const { ignoreThemes, userTheme } = this.$root.$yuu
 			const { pageTheme } = this.$page.frontmatter
-			const theme = ignoreThemes ? colorTheme : pageTheme || colorTheme
+			const theme = ignoreThemes ? userTheme : pageTheme || userTheme
 
 			this.setTheme({ colorTheme: theme })
 		},

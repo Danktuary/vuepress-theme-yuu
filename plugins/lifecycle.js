@@ -29,6 +29,7 @@ export default {
 
 		const $yuu = {
 			colorTheme: 'default',
+			userTheme: localStorage.getItem('color-theme'),
 			darkTheme: false,
 			ignoreThemes: false,
 		}
@@ -41,14 +42,12 @@ export default {
 			$yuu.darkTheme = localStorage.getItem('dark-theme') === 'true'
 		}
 
-		const userTheme = localStorage.getItem('color-theme')
-
-		if (yuuConfig.defaultColorTheme !== 'default' && !userTheme) {
-			$yuu.colorTheme = yuuConfig.defaultColorTheme
+		if (yuuConfig.defaultColorTheme !== 'default' && !$yuu.userTheme) {
+			$yuu.userTheme = yuuConfig.defaultColorTheme
 			localStorage.setItem('color-theme', yuuConfig.defaultColorTheme)
-		} else if (userTheme) {
-			$yuu.colorTheme = userTheme
 		}
+
+		if ($yuu.userTheme) $yuu.colorTheme = $yuu.userTheme
 
 		$yuu.ignoreThemes = yuuConfig.disableThemeIgnore ? false : localStorage.getItem('ignore-themes') === 'true'
 
