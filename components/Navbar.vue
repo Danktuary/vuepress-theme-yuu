@@ -1,7 +1,10 @@
 <template>
 	<header class="navbar">
 		<sidebar-button @toggle-sidebar="$emit('toggle-sidebar')" />
-		<router-link :to="$localePath" class="home-link">
+		<div v-if="yuuConfig.logo" class="navbar-logo">
+			<component :is="yuuConfig.logo" />
+		</div>
+		<router-link v-else :to="$localePath" class="home-link">
 			<img
 				v-if="$site.themeConfig.logo"
 				class="logo"
@@ -88,6 +91,10 @@ $navbar-horizontal-padding = 1.5rem;
 	line-height: $navbarHeight - 1.4rem;
 
 	a, span, img {
+		display: inline-block;
+	}
+
+	.navbar-logo {
 		display: inline-block;
 	}
 

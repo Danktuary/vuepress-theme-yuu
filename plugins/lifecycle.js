@@ -8,6 +8,7 @@ export default {
 			disableThemeIgnore = false,
 			extraOptions = {},
 			labels = {},
+			logo,
 		} = this.$site.themeConfig.yuu || {}
 
 		const themes = colorThemes || ['blue', 'red', 'purple']
@@ -24,6 +25,7 @@ export default {
 				darkTheme: labels.darkTheme || 'Enable Dark Theme?',
 				ignoreThemes: labels.ignoreThemes || 'Ignore Other Themes?',
 			},
+			logo,
 			themes,
 		}
 
