@@ -14,7 +14,7 @@ export default {
 		const themes = colorThemes || ['blue', 'red', 'purple']
 		const hasThemes = Array.isArray(themes) && themes.length > 0
 
-		const yuuConfig = {
+		this.$site.themeConfig.yuu = {
 			defaultColorTheme,
 			defaultDarkTheme,
 			disableDarkTheme,
@@ -29,11 +29,21 @@ export default {
 			themes,
 		}
 
-		const $yuu = {
+		this.$root.$yuu = {
 			colorTheme: 'default',
-			userTheme: localStorage.getItem('color-theme'),
 			darkTheme: false,
+			ignoreThemes: false,
+			userTheme: undefined,
+		}
+	},
+	mounted() {
+		const { colorTheme, darkTheme } = this.$root.$yuu
+		const { yuu: yuuConfig } = this.$site.themeConfig
+		const userConfig = {
+			colorTheme,
+			darkTheme,
 			ignoreThemes: yuuConfig.disableThemeIgnore ? false : localStorage.getItem('ignore-themes') === 'true',
+			userTheme: localStorage.getItem('color-theme'),
 		}
 
 		if (yuuConfig.disableDarkTheme !== true) {
@@ -41,17 +51,16 @@ export default {
 				localStorage.setItem('dark-theme', true)
 			}
 
-			$yuu.darkTheme = localStorage.getItem('dark-theme') === 'true'
+			userConfig.darkTheme = localStorage.getItem('dark-theme') === 'true'
 		}
 
-		if (yuuConfig.defaultColorTheme !== 'default' && !$yuu.userTheme) {
-			$yuu.userTheme = yuuConfig.defaultColorTheme
+		if (yuuConfig.defaultColorTheme !== 'default' && !userConfig.userTheme) {
+			userConfig.userTheme = yuuConfig.defaultColorTheme
 			localStorage.setItem('color-theme', yuuConfig.defaultColorTheme)
 		}
 
-		if ($yuu.userTheme) $yuu.colorTheme = $yuu.userTheme
+		if (userConfig.userTheme) userConfig.colorTheme = userConfig.userTheme
 
-		this.$root.$yuu = $yuu
-		this.$site.themeConfig.yuu = yuuConfig
+		this.$root.$yuu = userConfig
 	},
 }

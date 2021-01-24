@@ -12,7 +12,7 @@ export default {
 		ParentLayout,
 	},
 	mixins: [themeHandler],
-	created() {
+	beforeMount() {
 		if (this.$root.$yuu.darkTheme) this.setDarkTheme()
 		this.setPageTheme()
 	},
