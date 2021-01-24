@@ -64,6 +64,17 @@ h2 {
 	max-width: $contentWidth;
 }
 
+// @vuepress/plugin-search/SearchBox.vue
+.search-box {
+	margin-left: 1rem;
+
+	@media (max-width: $MQMobile) {
+		input {
+			left: 0;
+		}
+	}
+}
+
 // @parent-theme/components/SidebarGroup.vue
 .sidebar-heading {
 	color: #999;

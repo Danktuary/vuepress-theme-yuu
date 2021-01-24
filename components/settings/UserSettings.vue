@@ -49,7 +49,6 @@ export default {
 
 .user-settings {
 	position: relative;
-	margin-right: 1em;
 
 	.settings-button {
 		display: flex;
