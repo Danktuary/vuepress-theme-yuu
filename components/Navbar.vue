@@ -1,8 +1,8 @@
 <template>
 	<header class="navbar">
 		<sidebar-button @toggle-sidebar="$emit('toggle-sidebar')" />
-		<div v-if="yuuConfig.logo" class="navbar-logo">
-			<component :is="yuuConfig.logo" />
+		<div v-if="yuuConfig.logo" ref="yuuLogo" class="navbar-logo">
+			<component :is="yuuConfig.logo" @hook:mounted="handleLinksWrapWidth()" />
 		</div>
 		<router-link v-else :to="$localePath" class="home-link">
 			<img
@@ -73,18 +73,20 @@ export default {
 		},
 	},
 	mounted() {
-		const MOBILE_DESKTOP_BREAKPOINT = 719 // refer to config.styl
-		const NAVBAR_VERTICAL_PADDING = parseInt(css(this.$el, 'paddingLeft')) + parseInt(css(this.$el, 'paddingRight'))
-		const handleLinksWrapWidth = () => {
+		this.handleLinksWrapWidth()
+		window.addEventListener('resize', this.handleLinksWrapWidth, false)
+	},
+	methods: {
+		handleLinksWrapWidth() {
+			const MOBILE_DESKTOP_BREAKPOINT = 719 // refer to config.styl
+			const NAVBAR_VERTICAL_PADDING = parseInt(css(this.$el, 'paddingLeft')) + parseInt(css(this.$el, 'paddingRight'))
 			if (document.documentElement.clientWidth < MOBILE_DESKTOP_BREAKPOINT) {
 				this.linksWrapMaxWidth = null
 			} else {
-				this.linksWrapMaxWidth = this.$el.offsetWidth - NAVBAR_VERTICAL_PADDING
-				- ((this.$refs.siteName && this.$refs.siteName.offsetWidth) || 0)
+				const ref = this.$refs[this.yuuConfig.logo ? 'yuuLogo' : 'siteName']
+				this.linksWrapMaxWidth = this.$el.offsetWidth - NAVBAR_VERTICAL_PADDING - ((ref && ref.offsetWidth) || 0)
 			}
-		}
-		handleLinksWrapWidth()
-		window.addEventListener('resize', handleLinksWrapWidth, false)
+		},
 	},
 }
 </script>
