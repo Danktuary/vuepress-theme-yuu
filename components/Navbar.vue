@@ -20,11 +20,11 @@
 		</router-link>
 		<div class="links" :style="linksWrapMaxWidth ? { 'max-width': linksWrapMaxWidth + 'px' } : {}">
 			<div v-if="yuuConfig.extraOptions && yuuConfig.extraOptions.before" class="user-options-before">
-				<component :is="yuuConfig.extraOptions.before" />
+				<component :is="yuuConfig.extraOptions.before" @hook:mounted="handleLinksWrapWidth()" />
 			</div>
 			<user-settings />
 			<div v-if="yuuConfig.extraOptions && yuuConfig.extraOptions.after" class="user-options-after">
-				<component :is="yuuConfig.extraOptions.after" />
+				<component :is="yuuConfig.extraOptions.after" @hook:mounted="handleLinksWrapWidth()" />
 			</div>
 			<algolia-search-box v-if="isAlgoliaSearch" :options="algolia" />
 			<search-box v-else-if="$site.themeConfig.search !== false && $page.frontmatter.search !== false" />
