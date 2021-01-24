@@ -1,5 +1,5 @@
 <div align="center">
-	<img src="https://i.imgur.com/uphwMrZ.jpg" title="Yuu" alt="Yuu" />
+	<img src="https://i.imgur.com/j9bfYBy.png" title="Yuu" alt="Yuu" />
 </div>
 
 # Yuu
@@ -24,6 +24,6 @@ module.exports = {
 ```
 ## Features and configuration
 
-![Yuu user settings dropdown menu](https://i.imgur.com/NsJ0evR.png)
+![Yuu user settings dropdown menu](https://i.imgur.com/VCDGN8n.png)
 
 You can check out how to configure all of Yuu's features and a live demo on the [docs site](https://vuepress-theme-yuu.netlify.app/).
