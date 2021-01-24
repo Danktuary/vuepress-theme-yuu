@@ -1,18 +1,20 @@
 {
   "name": "vuepress-theme-yuu",
   "version": "2.3.0",
-  "description": "A VuePress theme that supports multiple color themes and some other useful features.",
+  "description": "A VuePress theme that supports a dark theme, multiple color themes, and other useful features.",
   "keywords": [
     "vuepress",
     "theme",
     "yuu",
     "vuepress-theme",
+	"dark",
     "colors",
     "vue",
     "customize",
     "options"
   ],
   "main": "index.js",
+  "homepage": "https://vuepress-theme-yuu.netlify.app/",
   "repository": "https://github.com/Danktuary/vuepress-theme-yuu.git",
   "author": "Sanctuary <sanc.pw@gmail.com>",
   "license": "MIT",

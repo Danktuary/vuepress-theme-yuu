@@ -4,7 +4,7 @@
 
 # Yuu
 
-A VuePress theme that supports a dark theme, multiple color themes, and other useful features. Extended upon the default VuePress theme with some adjustments.
+A [VuePress](https://vuepress.vuejs.org/) theme that supports a dark theme, multiple color themes, and [other useful features](https://vuepress-theme-yuu.netlify.app/theme-configuration.html). Extended upon the [default VuePress theme](https://vuepress.vuejs.org/theme/default-theme-config.html) with some adjustments.
 
 ## Installation
 
@@ -26,4 +26,4 @@ module.exports = {
 
 ![Yuu user settings dropdown menu](https://i.imgur.com/NsJ0evR.png)
 
-You can check out how to configure all of Yuu's features and a live demo on the [docs site](https://vuepress-theme-yuu.netlify.com/).
+You can check out how to configure all of Yuu's features and a live demo on the [docs site](https://vuepress-theme-yuu.netlify.app/).
