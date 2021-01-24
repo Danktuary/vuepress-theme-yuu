@@ -48,7 +48,13 @@ function css(el, property) {
 }
 
 export default {
-	components: { SidebarButton, NavLinks, SearchBox, AlgoliaSearchBox, UserSettings },
+	components: {
+		SidebarButton,
+		NavLinks,
+		SearchBox,
+		AlgoliaSearchBox,
+		UserSettings,
+	},
 	data() {
 		return {
 			linksWrapMaxWidth: null,

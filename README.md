@@ -20,7 +20,7 @@ And then setting it in your `docs/.vuepress/config.js` file:
 ```js
 module.exports = {
 	theme: 'yuu',
-};
+}
 ```
 ## Features and configuration
 

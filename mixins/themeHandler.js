@@ -1,5 +1,26 @@
 export default {
 	methods: {
+		setDarkTheme() {
+			if (this.$root.$yuu.darkTheme) {
+				document.body.classList.add('yuu-theme-dark')
+				return localStorage.setItem('dark-theme', true)
+			}
+
+			document.body.classList.remove('yuu-theme-dark')
+			localStorage.setItem('dark-theme', false)
+		},
+		setIgnoreThemes() {
+			this.setPageTheme()
+			if (this.$root.$yuu.ignoreThemes) return localStorage.setItem('ignore-themes', true)
+			localStorage.removeItem('ignore-themes')
+		},
+		setPageTheme() {
+			const { ignoreThemes, userTheme } = this.$root.$yuu
+			const { pageTheme } = this.$page.frontmatter
+			const theme = ignoreThemes ? userTheme : pageTheme || userTheme
+
+			this.setTheme({ colorTheme: theme })
+		},
 		setTheme({ colorTheme = 'default', persist = false }) {
 			const { themes } = this.$site.themeConfig.yuu
 			const { classList } = document.body
@@ -19,27 +40,6 @@ export default {
 			if (colorTheme === 'default') return classList.remove(...themesClasses)
 			classList.remove(...themesClasses.filter(themeClass => themeClass !== `yuu-theme-${colorTheme}`))
 			classList.add(`yuu-theme-${colorTheme}`)
-		},
-		setPageTheme() {
-			const { ignoreThemes, userTheme } = this.$root.$yuu
-			const { pageTheme } = this.$page.frontmatter
-			const theme = ignoreThemes ? userTheme : pageTheme || userTheme
-
-			this.setTheme({ colorTheme: theme })
-		},
-		setDarkTheme() {
-			if (this.$root.$yuu.darkTheme) {
-				document.body.classList.add('yuu-theme-dark')
-				return localStorage.setItem('dark-theme', true)
-			}
-
-			document.body.classList.remove('yuu-theme-dark')
-			localStorage.setItem('dark-theme', false)
-		},
-		setIgnoreThemes() {
-			this.setPageTheme()
-			if (this.$root.$yuu.ignoreThemes) return localStorage.setItem('ignore-themes', true)
-			localStorage.removeItem('ignore-themes')
 		},
 	},
 }

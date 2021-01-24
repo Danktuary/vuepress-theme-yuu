@@ -14,7 +14,10 @@ import PageNav from '@parent-theme/components/PageNav.vue'
 import themeHandler from '@theme/mixins/themeHandler.js'
 
 export default {
-	components: { PageEdit, PageNav },
+	components: {
+		PageEdit,
+		PageNav,
+	},
 	mixins: [themeHandler],
 	props: ['sidebarItems'],
 	watch: {

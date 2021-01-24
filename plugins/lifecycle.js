@@ -33,7 +33,7 @@ export default {
 			colorTheme: 'default',
 			userTheme: localStorage.getItem('color-theme'),
 			darkTheme: false,
-			ignoreThemes: false,
+			ignoreThemes: yuuConfig.disableThemeIgnore ? false : localStorage.getItem('ignore-themes') === 'true',
 		}
 
 		if (yuuConfig.disableDarkTheme !== true) {
@@ -50,8 +50,6 @@ export default {
 		}
 
 		if ($yuu.userTheme) $yuu.colorTheme = $yuu.userTheme
-
-		$yuu.ignoreThemes = yuuConfig.disableThemeIgnore ? false : localStorage.getItem('ignore-themes') === 'true'
 
 		this.$root.$yuu = $yuu
 		this.$site.themeConfig.yuu = yuuConfig
