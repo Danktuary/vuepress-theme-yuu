@@ -7,6 +7,7 @@ import ParentLayout from '@parent-theme/layouts/Layout.vue'
 import themeHandler from '@theme/mixins/themeHandler.js'
 
 export default {
+	name: 'Layout',
 	components: {
 		ParentLayout,
 	},

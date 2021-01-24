@@ -48,6 +48,7 @@ function css(el, property) {
 }
 
 export default {
+	name: 'Navbar',
 	components: {
 		SidebarButton,
 		NavLinks,

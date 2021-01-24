@@ -14,6 +14,7 @@ import PageNav from '@parent-theme/components/PageNav.vue'
 import themeHandler from '@theme/mixins/themeHandler.js'
 
 export default {
+	name: 'Page',
 	components: {
 		PageEdit,
 		PageNav,

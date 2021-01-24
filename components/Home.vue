@@ -7,6 +7,7 @@ import ParentHome from '@parent-theme/components/Home.vue'
 import themeHandler from '@theme/mixins/themeHandler.js'
 
 export default {
+	name: 'Home',
 	components: {
 		ParentHome, // eslint-disable-line vue/no-unused-components
 	},
