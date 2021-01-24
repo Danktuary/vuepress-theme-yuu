@@ -76,6 +76,9 @@ export default {
 		this.handleLinksWrapWidth()
 		window.addEventListener('resize', this.handleLinksWrapWidth, false)
 	},
+	destroyed() {
+		window.removeEventListener('resize', this.handleLinksWrapWidth)
+	},
 	methods: {
 		handleLinksWrapWidth() {
 			const MOBILE_DESKTOP_BREAKPOINT = 719 // refer to config.styl
