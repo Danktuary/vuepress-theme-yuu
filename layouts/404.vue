@@ -7,7 +7,7 @@ import ParentLayout from '@parent-theme/layouts/404.vue'
 import themeHandler from '@theme/mixins/themeHandler.js'
 
 export default {
-	name: '404',
+	name: 'NotFound',
 	components: {
 		ParentLayout,
 	},
