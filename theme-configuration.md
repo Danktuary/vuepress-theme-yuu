@@ -4,7 +4,7 @@ sidebar: auto
 
 ## Theme configuration
 
-![Yuu user settings dropdown menu](https://i.imgur.com/NsJ0evR.png)
+![Yuu user settings dropdown menu](https://i.imgur.com/VCDGN8n.png)
 
 Below is a list of the additional configurable features Yuu has to offer. All other configuration settings in VuePress's [default theme config](https://vuepress.vuejs.org/theme/default-theme-config.html) page are also available, since Yuu extends the default theme.
 
@@ -19,7 +19,7 @@ module.exports = {
 			defaultDarkTheme: true,
 		},
 	},
-};
+}
 ```
 
 ### Disabling the dark theme
@@ -33,7 +33,7 @@ module.exports = {
 			disableDarkTheme: true,
 		},
 	},
-};
+}
 ```
 
 ## Color themes
@@ -47,7 +47,7 @@ module.exports = {
 			colorThemes: ['red'],
 		},
 	},
-};
+}
 ```
 
 ### Default color theme
@@ -61,22 +61,22 @@ module.exports = {
 			defaultColorTheme: 'blue',
 		},
 	},
-};
+}
 ```
 
-## Forced color themes per page
+## Set color themes per page
 
-You can force themes on a per page basis as well. Using YAML frontmatter on the page(s) you want to display a specific theme:
+You can set themes on a per page basis as well. Using YAML frontmatter on the page(s) you want to display a specific theme:
 
 ```md
 ---
-forceTheme: blue
+pageTheme: blue
 ---
 ```
 
-### Disallowing forced themes from being ignored
+### Disallowing themes from being ignored
 
-Users will still be able ignore forced themes via the user settings dropdown menu. You can disable this via the `disableThemeIgnore` option.
+Users will still be able ignore themes via the user settings dropdown menu. You can disable this via the `disableThemeIgnore` option.
 
 ```js
 module.exports = {
@@ -85,9 +85,24 @@ module.exports = {
 			disableThemeIgnore: true,
 		},
 	},
-};
+}
 ```
+## Labels
 
+You can update the text for the dark theme and theme ignore labels inside the dropdown menu via the `labels` setting.
+
+```js
+module.exports = {
+	themeConfig: {
+		yuu: {
+			labels: {
+				darkTheme: 'Dark theme?', // Default is "Enable Dark Theme?"
+				ignoreThemes: 'Ignore themes?', // Default is "Ignore Other Themes?"
+			},
+		},
+	},
+}
+```
 ## Extra options
 
 If you want to add your own options to or around the dropdown menu, you can do so via the `extraOptions` setting. The strings provided are the names of the components to use (most likely located in your `docs/.vuepress/components/` directory).
@@ -104,7 +119,7 @@ module.exports = {
 			},
 		},
 	},
-};
+}
 ```
 
 `before` and `after` will be placed before or after the cog icon, and `above` and `below` will be placed inside the dropdown menu, above or below the default Yuu options. You can target these elements in your CSS with the selectors `.user-options-before`, `.user-options-after`, `.user-options-above`, and `.user-options-below`.
@@ -137,4 +152,29 @@ homeComponent: CustomHome
 	margin: 0 auto
 	padding: $navbarHeight 2rem 0
 </style>
+```
+
+## Custom logo
+
+If you want to use your own logo component instead of supplying the [title](https://vuepress.vuejs.org/config/#title) and [logo](https://vuepress.vuejs.org/theme/default-theme-config.html#navbar-logo) config options, you can use the `logo` setting.
+
+```js
+module.exports = {
+	themeConfig: {
+		yuu: {
+			logo: 'YuuLogo',
+		},
+	},
+}
+```
+
+This will override the default `<router-link>` on the navbar, so you'll need to provide your own. `$localePath` is used in the default theme.
+
+```vue
+<!-- docs/.vuepress/components/YuuLogo.vue -->
+<template>
+	<router-link :to="$localePath" class="yuu-logo">
+		Yuu
+	</router-link>
+</template>
 ```
