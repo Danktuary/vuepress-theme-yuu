@@ -27,3 +27,16 @@ module.exports = {
 ![Yuu user settings dropdown menu](https://i.imgur.com/VCDGN8n.png)
 
 You can check out how to configure all of Yuu's features and a live demo on the [docs site](https://vuepress-theme-yuu.netlify.app/).
+
+## Upgrading
+
+### Upgrade to v3
+
+Yuu v3 brings bug fixes and CSS updates, as well as a few small features and breaking changes. You should also consider upgrading to `vuepress@^1.8.0`.
+
+Features:
+- Added a `logo` option to the Yuu theme config
+- Added a `labels` option to the Yuu theme config
+
+Breaking changes:
+- The `forceTheme` frontmatter option has been renamed to `pageTheme`
