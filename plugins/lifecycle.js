@@ -1,4 +1,7 @@
+import themeHandler from '../mixins/themeHandler.js'
+
 export default {
+	mixins: [themeHandler],
 	created() {
 		const {
 			colorThemes = ['blue', 'red', 'purple'],
@@ -36,7 +39,7 @@ export default {
 			userTheme: undefined,
 		}
 	},
-	mounted() {
+	beforeMount() {
 		const { colorTheme, darkTheme } = this.$root.$yuu
 		const { yuu: yuuConfig } = this.$site.themeConfig
 		const userConfig = {
@@ -62,5 +65,8 @@ export default {
 		if (userConfig.userTheme) userConfig.colorTheme = userConfig.userTheme
 
 		this.$root.$yuu = userConfig
+
+		if (this.$root.$yuu.darkTheme) this.setDarkTheme()
+		this.setPageTheme()
 	},
 }
